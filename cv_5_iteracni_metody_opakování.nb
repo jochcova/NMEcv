@@ -1,0 +1,338 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12154,        330]
+NotebookOptionsPosition[     10835,        305]
+NotebookOutlinePosition[     11264,        322]
+CellTagsIndexPosition[     11221,        319]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"A", "=", 
+   RowBox[{"N", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"5", ",", "1", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "7", ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "3", ",", "8"}], "}"}]}], "}"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"b", "=", 
+   RowBox[{"N", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"-", "1"}], "}"}], ",", 
+      RowBox[{"{", "3", "}"}], ",", 
+      RowBox[{"{", "1", "}"}]}], "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"x0", "=", 
+   RowBox[{"N", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "1", "}"}], ",", 
+      RowBox[{"{", "2", "}"}], ",", 
+      RowBox[{"{", "3", "}"}]}], "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"LowerTriangularize", "[", 
+    RowBox[{"A", ",", 
+     RowBox[{"-", "1"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"U", "=", 
+   RowBox[{"UpperTriangularize", "[", 
+    RowBox[{"A", ",", "1"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"De", "=", 
+   RowBox[{"A", "-", "L", "-", "U"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"solver", "=", 
+   RowBox[{"LinearSolve", "[", 
+    RowBox[{"A", ",", "b"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.9193245793611407`*^9, 3.919324626615883*^9}, {
+   3.9193246704157963`*^9, 3.9193246732557793`*^9}, 3.9194021354389515`*^9, 
+   3.9197635074799423`*^9, {3.9197636436736903`*^9, 3.919763673128592*^9}, {
+   3.919763795862917*^9, 3.919763799502799*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"55306a7d-85a6-4457-a307-3a54742389f1"],
+
+Cell[TextData[{
+ "stacion\[AAcute]rn\[IAcute] itera\[CHacek]n\[IAcute] metody pro \[RHacek]e\
+\[SHacek]en\[IAcute] soustav line\[AAcute]rn\[IAcute]ch rovnic:\nobecn\
+\[YAcute] p\[RHacek]edpis pro k+1 iteraci: ",
+ StyleBox["x",
+  FontSize->30],
+ StyleBox["k+1=",
+  FontWeight->"Bold"],
+ StyleBox["B",
+  FontSize->30],
+ StyleBox[".",
+  FontWeight->"Bold"],
+ StyleBox["x",
+  FontSize->30],
+ StyleBox["k+",
+  FontWeight->"Bold"],
+ StyleBox["c",
+  FontSize->30]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellChangeTimes->{{3.919763324590891*^9, 3.9197633911105165`*^9}, {
+   3.919765696826667*^9, 3.919765715786788*^9}, 3.9197658373159256`*^9, 
+   3.9197660370149775`*^9},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"925c75ae-4cff-432a-b82b-48f00580ae73"],
+
+Cell["Jacobi", "Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellChangeTimes->{{3.919763286111441*^9, 3.919763287250946*^9}},
+ Background->RGBColor[
+  1, 0.9, 1],ExpressionUUID->"9c2dfec3-12cc-4742-9daa-0ee2a3febad7"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"chybaJ", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"x", "=", "x0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"B", "="}], 
+  RowBox[{"(*", "dopl\[NHacek]te", "*)"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c", "="}], 
+  RowBox[{"(*", "dopl\[NHacek]te", "*)"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "<=", "100"}], ",", 
+   RowBox[{"i", "++"}], ",", " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"x", "=", 
+     RowBox[{
+      RowBox[{"B", ".", "x"}], "+", "c"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"chybaJ", ",", 
+      RowBox[{"Norm", "[", 
+       RowBox[{"x", "-", "solver"}], "]"}]}], "]"}], ";"}]}], 
+  "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.919336103479355*^9, 3.919336125349472*^9}, 
+   3.9197637328581686`*^9, {3.919763834907737*^9, 3.919763896447442*^9}, {
+   3.9197640059764786`*^9, 3.9197640087966385`*^9}, {3.919764047076256*^9, 
+   3.919764080701172*^9}, {3.9197641303261166`*^9, 3.9197641458306484`*^9}, {
+   3.9197647946317596`*^9, 3.9197648345219917`*^9}, {3.9197658992805185`*^9, 
+   3.9197659035956125`*^9}},ExpressionUUID->"f43805ba-f8b3-48ee-83fe-\
+acdcc274af01"],
+
+Cell["Gauss-Seidel", "Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellChangeTimes->{{3.919764184055654*^9, 3.9197641871054087`*^9}},
+ Background->RGBColor[
+  1, 0.9, 0.8],ExpressionUUID->"4508d729-86e7-4e77-8345-f126f33e23e7"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"chybaGS", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"x", "=", "x0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"B", "="}], 
+  RowBox[{"(*", "dopl\[NHacek]te", "*)"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c", "="}], 
+  RowBox[{"(*", "dopl\[NHacek]te", "*)"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "<=", "100"}], ",", 
+   RowBox[{"i", "++"}], ",", " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"x", "=", 
+     RowBox[{
+      RowBox[{"B", ".", "x"}], "+", "c"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"chybaGS", ",", 
+      RowBox[{"Norm", "[", 
+       RowBox[{"x", "-", "solver"}], "]"}]}], "]"}], ";"}]}], 
+  "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.9197641949402943`*^9, 3.919764196505322*^9}, {
+  3.9197643871441875`*^9, 3.919764388154501*^9}, {3.919764876021306*^9, 
+  3.9197649211809206`*^9}, {3.9197659090907526`*^9, 
+  3.919765912275314*^9}},ExpressionUUID->"2cd7bae4-135c-4dcb-beb2-\
+84be78e12135"],
+
+Cell["Super relaxa\[CHacek]n\[IAcute] + Gauss-Seidel", "Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellChangeTimes->{{3.9197642306326585`*^9, 3.9197642470150375`*^9}},
+ Background->RGBColor[
+  0.87, 0.94, 1],ExpressionUUID->"d62be81a-1dc8-48fb-9776-cb8d5fe464eb"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"chybaSR", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"x", "=", "x0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Omega]0", "=", ".8"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"B", "="}], 
+  RowBox[{"(*", "dopl\[NHacek]te", "*)"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c", "="}], 
+  RowBox[{"(*", "dopl\[NHacek]te", "*)"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "<=", "100"}], ",", 
+   RowBox[{"i", "++"}], ",", " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"xkp1", "=", 
+     RowBox[{
+      RowBox[{"B", ".", "x"}], "+", "c"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"x", "=", 
+     RowBox[{"x", "+", 
+      RowBox[{"\[Omega]0", "*", 
+       RowBox[{"(", 
+        RowBox[{"xkp1", "-", "x"}], ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"chybaSR", ",", 
+      RowBox[{"Norm", "[", 
+       RowBox[{"x", "-", "solver"}], "]"}]}], "]"}], ";"}]}], 
+  "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.91976425784483*^9, 3.919764264344697*^9}, {
+  3.919764329594777*^9, 3.919764393644417*^9}, {3.919764612112858*^9, 
+  3.919764615903012*^9}, {3.9197649548008614`*^9, 3.919764962935858*^9}, {
+  3.9197659166456423`*^9, 
+  3.9197659188956347`*^9}},ExpressionUUID->"3bd4f78e-af16-4271-83c3-\
+beadb5c7596f"],
+
+Cell["optimalizovan\[AAcute] Super relaxa\[CHacek]n\[IAcute] + Gauss-Seidel", \
+"Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellChangeTimes->{{3.91976442575406*^9, 3.919764434804163*^9}},
+ Background->RGBColor[
+  0.88, 1, 0.88],ExpressionUUID->"95b65777-3731-4a7e-a9c5-6cb650d3c2a5"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"chybaSRopt", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"x", "=", "x0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Rho]", "="}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "dopl\[NHacek]te", " ", "spektr\[AAcute]ln\[IAcute]", " ", 
+     "polom\[EHacek]r", " ", "matice", " ", "B"}], " ", "-", " ", 
+    RowBox[{
+    "nejv\[EHacek]t\[SHacek]\[IAcute]", " ", "vlastn\[IAcute]", " ", 
+     "\[CHacek]\[IAcute]slo", " ", "v", " ", "absolutn\[IAcute]", " ", 
+     "hodnot\[EHacek]"}]}], "*)"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Omega]opt", "="}], 
+   RowBox[{"(*", 
+    RowBox[{
+    "dopl\[NHacek]te", " ", "vzorec", " ", "pro", " ", 
+     "optim\[AAcute]ln\[IAcute]", " ", "omega"}], "*)"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "<=", "100"}], ",", 
+   RowBox[{"i", "++"}], ",", " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"xkp1", "=", 
+     RowBox[{
+      RowBox[{"B", ".", "x"}], "+", "c"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"x", "=", 
+     RowBox[{"x", "+", 
+      RowBox[{"\[Omega]opt", "*", 
+       RowBox[{"(", 
+        RowBox[{"xkp1", "-", "x"}], ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"chybaSRopt", ",", 
+      RowBox[{"Norm", "[", 
+       RowBox[{"x", "-", "solver"}], "]"}]}], "]"}], ";"}]}], 
+  "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.9197645092186384`*^9, 3.9197645877428865`*^9}, {
+  3.9197646330481997`*^9, 3.91976463400298*^9}, {3.919764739377049*^9, 
+  3.919764759471835*^9}, {3.9197649850057297`*^9, 3.9197650026406107`*^9}, {
+  3.91976504023011*^9, 3.9197650626554303`*^9}, {3.9197651618396683`*^9, 
+  3.9197651887995715`*^9}, {3.919765224949509*^9, 3.919765274819043*^9}, {
+  3.9197659354503837`*^9, 
+  3.9197659700054226`*^9}},ExpressionUUID->"bbe3b0c2-e3ba-4208-92cd-\
+ca4ab09f11cc"],
+
+Cell[BoxData[
+ RowBox[{"ListLogPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"chybaJ", ",", "chybaGS", ",", "chybaSR", ",", "chybaSRopt"}], 
+    "}"}], ",", 
+   RowBox[{"ImageSize", "->", "Large"}], ",", 
+   RowBox[{"GridLines", "->", "Automatic"}], ",", 
+   RowBox[{"AxesStyle", "->", 
+    RowBox[{"Directive", "[", 
+     RowBox[{"Gray", ",", " ", "18"}], "]"}]}], ",", 
+   RowBox[{"PlotLegends", "->", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<chybaJ\>\"", ",", "\"\<chybaGS\>\"", ",", "\"\<chybaSR\>\"", ",", 
+      "\"\<chybaSRopt\>\""}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.919764855391592*^9, 3.919764863646551*^9}, {
+  3.9197649331308174`*^9, 3.9197649391610036`*^9}, {3.9197649757306347`*^9, 
+  3.9197649781306257`*^9}, {3.9197652863589153`*^9, 3.919765288883791*^9}, {
+  3.919765388718541*^9, 3.9197654407680955`*^9}, {3.919765477611805*^9, 
+  3.919765552677441*^9}},
+ CellLabel->"In[48]:=",ExpressionUUID->"9f91af79-3cbe-48d6-b173-bde672a2f162"]
+},
+WindowSize->{1440., 747.75},
+WindowMargins->{{-6, Automatic}, {Automatic, -6}},
+CellContext->Notebook,
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"daf63eb0-694c-4926-8325-b183f10efa47"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1664, 50, 107, "Input",ExpressionUUID->"55306a7d-85a6-4457-a307-3a54742389f1"],
+Cell[2225, 72, 761, 24, 71, "Text",ExpressionUUID->"925c75ae-4cff-432a-b82b-48f00580ae73"],
+Cell[2989, 98, 210, 4, 39, "Text",ExpressionUUID->"9c2dfec3-12cc-4742-9daa-0ee2a3febad7"],
+Cell[3202, 104, 1309, 32, 122, "Input",ExpressionUUID->"f43805ba-f8b3-48ee-83fe-acdcc274af01"],
+Cell[4514, 138, 220, 4, 39, "Text",ExpressionUUID->"4508d729-86e7-4e77-8345-f126f33e23e7"],
+Cell[4737, 144, 1130, 30, 122, "Input",ExpressionUUID->"2cd7bae4-135c-4dcb-beb2-84be78e12135"],
+Cell[5870, 176, 258, 4, 39, "Text",ExpressionUUID->"d62be81a-1dc8-48fb-9776-cb8d5fe464eb"],
+Cell[6131, 182, 1435, 38, 150, "Input",ExpressionUUID->"3bd4f78e-af16-4271-83c3-beadb5c7596f"],
+Cell[7569, 222, 278, 5, 39, "Text",ExpressionUUID->"95b65777-3731-4a7e-a9c5-6cb650d3c2a5"],
+Cell[7850, 229, 2001, 51, 150, "Input",ExpressionUUID->"bbe3b0c2-e3ba-4208-92cd-ca4ab09f11cc"],
+Cell[9854, 282, 977, 21, 21, "Input",ExpressionUUID->"9f91af79-3cbe-48d6-b173-bde672a2f162"]
+}
+]
+*)
+
