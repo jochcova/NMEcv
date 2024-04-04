@@ -1,0 +1,220 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8579,        212]
+NotebookOptionsPosition[      7363,        188]
+NotebookOutlinePosition[      7791,        205]
+CellTagsIndexPosition[      7748,        202]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+1) insertion sort: \[RHacek]azen\[IAcute] vkl\[AAcute]d\[AAcute]n\[IAcute]m - \
+prvky se proch\[AAcute]z\[IAcute] postupn\[EHacek] a neset\[RHacek]\[IAcute]d\
+\[EHacek]n\[YAcute] se za\[RHacek]ad\[IAcute] na spr\[AAcute]vn\[EAcute] m\
+\[IAcute]sto do ji\[ZHacek] set\[RHacek]\[IAcute]d\[EHacek]n\[EAcute] \
+posloupnosti\
+\>", "Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellChangeTimes->{{3.921230998155115*^9, 3.921231062893547*^9}},
+ Background->RGBColor[
+  0.9, 1, 1],ExpressionUUID->"a19c49b5-14f6-4d40-9553-3dca7a41d483"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"list", "=", 
+   RowBox[{"{", 
+    RowBox[{"12", ",", "11", ",", "13", ",", "5", ",", "6"}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.9212306299100237`*^9, 3.9212306477068224`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"0f8c17a7-f071-43f3-a5ef-26fd8adcb35b"],
+
+Cell[BoxData[
+ RowBox[{"n", "=", "5"}]], "Input",
+ CellChangeTimes->{{3.9212307179290247`*^9, 3.9212307189567366`*^9}, {
+  3.9212308972844515`*^9, 3.9212308981407185`*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"a1e20272-a4ab-4515-89cf-506ee58f5a2d"],
+
+Cell[BoxData[
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "2"}], ",", 
+   RowBox[{"i", "<=", "n"}], ",", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"klic", "=", 
+     RowBox[{"list", "[", 
+      RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"j", "=", 
+     RowBox[{"i", "-", "1"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"While", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"j", ">=", "1"}], "&&", 
+       RowBox[{
+        RowBox[{"list", "[", 
+         RowBox[{"[", "j", "]"}], "]"}], ">", "klic"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"list", "[", 
+         RowBox[{"[", 
+          RowBox[{"j", "+", "1"}], "]"}], "]"}], "=", 
+        RowBox[{"list", "[", 
+         RowBox[{"[", "j", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"j", "--"}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"list", "[", 
+         RowBox[{"[", 
+          RowBox[{"j", "+", "1"}], "]"}], "]"}], "=", "klic"}]}]}], 
+     "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Print", "[", "list", "]"}]}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9212303016763577`*^9, 3.9212305136918*^9}, {
+  3.9212305888320293`*^9, 3.9212306051095805`*^9}, {3.9212308452533236`*^9, 
+  3.921230847347248*^9}, {3.921230884331315*^9, 3.9212308847220573`*^9}, {
+  3.9212310866278687`*^9, 3.921231098049427*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"94ea4641-650a-4521-a3f2-027edf63fc66"],
+
+Cell[BoxData["list"], "Input",
+ CellChangeTimes->{{3.921230671160116*^9, 3.921230672659792*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"d5f09e2f-f6b8-4728-bd04-a8bcc7af19f7"],
+
+Cell["2) selection sort: \[RHacek]azen\[IAcute] v\[YAcute]b\[EHacek]rem", \
+"Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellChangeTimes->{{3.9212345645665054`*^9, 3.921234579882551*^9}, {
+  3.9212346269082146`*^9, 3.9212346408644013`*^9}},
+ Background->RGBColor[
+  1, 0.925, 0.925],ExpressionUUID->"99fa4e4f-be1a-487c-8758-412fa0e76be2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"list2", "=", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "14", ",", "11", ",", "1", ",", "32"}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.92123131017283*^9, 3.92123132008034*^9}},
+ CellLabel->"In[59]:=",ExpressionUUID->"7e86df49-6614-4e95-9b01-c2ca75740c56"],
+
+Cell[BoxData[
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "0"}], ",", 
+   RowBox[{"i", "<", 
+    RowBox[{"n", "-", "1"}]}], ",", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"klicindex", "=", "i"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"j", "=", 
+       RowBox[{"i", "+", "1"}]}], ",", 
+      RowBox[{"j", "<", "n"}], ",", 
+      RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"list2", "[", 
+          RowBox[{"[", "klicindex", "]"}], "]"}], ">", 
+         RowBox[{"list2", "[", 
+          RowBox[{"[", "j", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"klicindex", "=", "j"}]}], "\[IndentingNewLine]", "]"}]}], 
+     "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"klicindex", "!=", "i"}], ",", 
+      RowBox[{
+       RowBox[{"f", "=", 
+        RowBox[{"list2", "[", 
+         RowBox[{"[", "klicindex", "]"}], "]"}]}], ";", 
+       RowBox[{
+        RowBox[{"list2", "[", 
+         RowBox[{"[", "klicindex", "]"}], "]"}], "=", 
+        RowBox[{"list2", "[", 
+         RowBox[{"[", "i", "]"}], "]"}]}], ";", 
+       RowBox[{
+        RowBox[{"list2", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "=", "f"}], ";", 
+       RowBox[{"Print", "[", "list2", "]"}]}]}], "]"}]}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.9212313389865203`*^9, 3.921231540702072*^9}, {
+   3.921231755907546*^9, 3.9212318407039413`*^9}, {3.9212319677506123`*^9, 
+   3.9212319922816544`*^9}, {3.921232135411318*^9, 3.9212321447034626`*^9}, {
+   3.9212321910936546`*^9, 3.921232232781212*^9}, {3.921232264765067*^9, 
+   3.921232290874357*^9}, {3.9212333633110647`*^9, 3.9212334489223156`*^9}, {
+   3.92123350461224*^9, 3.9212335066836777`*^9}, {3.9212335550715666`*^9, 
+   3.9212335599726305`*^9}, {3.9212335970905952`*^9, 
+   3.9212335990342784`*^9}, {3.921233680030377*^9, 3.9212336981814184`*^9}, 
+   3.9212337628788896`*^9, {3.9212338269153624`*^9, 3.9212338299764338`*^9}, 
+   3.921234102275025*^9, {3.921234302683572*^9, 3.9212343059092865`*^9}, {
+   3.921234350135003*^9, 3.921234395584648*^9}, {3.9212346813452296`*^9, 
+   3.9212346908140388`*^9}},
+ CellLabel->"In[60]:=",ExpressionUUID->"219c7859-0dcb-455e-8aa0-d77f2519e6e4"],
+
+Cell[BoxData["list2"], "Input",
+ CellChangeTimes->{{3.9212318691741686`*^9, 3.9212318710010185`*^9}},
+ CellLabel->"In[58]:=",ExpressionUUID->"109ae960-8aa2-4430-912d-822c4086eedf"],
+
+Cell[BoxData[
+ TemplateBox[{
+   RowBox[{
+     RowBox[{"https", ":"}], "//", 
+     RowBox[{
+       RowBox[{
+         RowBox[{"www", ".", "geeksforgeeks", ".", "org"}], "/", "sorting"}], 
+       "-", 
+       RowBox[{"algorithms", "/", 
+         RowBox[{"?", "ref=gcse"}]}]}]}], {
+    URL["https://www.geeksforgeeks.org/sorting-algorithms/?ref=gcse"], None}, 
+   "https://www.geeksforgeeks.org/sorting-algorithms/?ref=gcse", 
+   "HyperlinkActionRecycled", {"HyperlinkActive"}, BaseStyle -> {"Hyperlink"},
+    HyperlinkAction -> "Recycled"},
+  "HyperlinkTemplate"]], "Input",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellChangeTimes->{{3.92123450104099*^9, 3.9212345117118387`*^9}},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"68017842-f69b-4aa9-9025-e24ea60d790b"]
+},
+WindowSize->{960, 478},
+WindowMargins->{{-5.5, Automatic}, {Automatic, -5.5}},
+CellContext->Notebook,
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"13e4dd1b-384f-498d-b185-cd299cc1d1b4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 531, 10, 39, "Text",ExpressionUUID->"a19c49b5-14f6-4d40-9553-3dca7a41d483"],
+Cell[1092, 32, 304, 7, 21, "Input",ExpressionUUID->"0f8c17a7-f071-43f3-a5ef-26fd8adcb35b"],
+Cell[1399, 41, 250, 4, 21, "Input",ExpressionUUID->"a1e20272-a4ab-4515-89cf-506ee58f5a2d"],
+Cell[1652, 47, 1558, 39, 150, "Input",ExpressionUUID->"94ea4641-650a-4521-a3f2-027edf63fc66"],
+Cell[3213, 88, 174, 2, 21, "Input",ExpressionUUID->"d5f09e2f-f6b8-4728-bd04-a8bcc7af19f7"],
+Cell[3390, 92, 332, 6, 39, "Text",ExpressionUUID->"99fa4e4f-be1a-487c-8758-412fa0e76be2"],
+Cell[3725, 100, 299, 7, 21, "Input",ExpressionUUID->"7e86df49-6614-4e95-9b01-c2ca75740c56"],
+Cell[4027, 109, 2379, 53, 136, "Input",ExpressionUUID->"219c7859-0dcb-455e-8aa0-d77f2519e6e4"],
+Cell[6409, 164, 180, 2, 21, "Input",ExpressionUUID->"109ae960-8aa2-4430-912d-822c4086eedf"],
+Cell[6592, 168, 767, 18, 35, "Input",ExpressionUUID->"68017842-f69b-4aa9-9025-e24ea60d790b"]
+}
+]
+*)
+
