@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    522750,       8779]
-NotebookOptionsPosition[    520174,       8741]
-NotebookOutlinePosition[    520596,       8758]
-CellTagsIndexPosition[    520553,       8755]
+NotebookDataLength[    527030,       8892]
+NotebookOptionsPosition[    524355,       8853]
+NotebookOutlinePosition[    524777,       8870]
+CellTagsIndexPosition[    524734,       8867]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -8710,6 +8710,118 @@ AAAAAAAAmMb/P5lr7g==
   3.921209754208929*^9},ExpressionUUID->"d9f0aa5d-fae4-43f2-9a38-\
 d873ed1a8375"],
 
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"Coefficient", "[", 
+    RowBox[{
+     InterpretationBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"a", "+", "b", "+", "c", "+", "d", "+", "e"}], ")"}], " ", 
+        RowBox[{"y", "[", "0", "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "2"}], " ", "a"}], "-", "b", "+", "d", "+", 
+          RowBox[{"2", " ", "e"}]}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["y", "\[Prime]",
+          MultilineFunction->None], "[", "0", "]"}], " ", 
+        "\[CapitalDelta]x"}], "+", 
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"4", " ", "a"}], "+", "b", "+", "d", "+", 
+          RowBox[{"4", " ", "e"}]}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["y", "\[Prime]\[Prime]",
+          MultilineFunction->None], "[", "0", "]"}], " ", 
+        SuperscriptBox["\[CapitalDelta]x", "2"]}], "+", 
+       RowBox[{
+        FractionBox["1", "6"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "8"}], " ", "a"}], "-", "b", "+", "d", "+", 
+          RowBox[{"8", " ", "e"}]}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["y", 
+          TagBox[
+           RowBox[{"(", "3", ")"}],
+           Derivative],
+          MultilineFunction->None], "[", "0", "]"}], " ", 
+        SuperscriptBox["\[CapitalDelta]x", "3"]}], "+", 
+       RowBox[{
+        FractionBox["1", "24"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"16", " ", "a"}], "+", "b", "+", "d", "+", 
+          RowBox[{"16", " ", "e"}]}], ")"}], " ", 
+        RowBox[{
+         SuperscriptBox["y", 
+          TagBox[
+           RowBox[{"(", "4", ")"}],
+           Derivative],
+          MultilineFunction->None], "[", "0", "]"}], " ", 
+        SuperscriptBox["\[CapitalDelta]x", "4"]}], "+", 
+       InterpretationBox[
+        SuperscriptBox[
+         RowBox[{"O", "[", "\[CapitalDelta]x", "]"}], "5"],
+        SeriesData[$CellContext`\[CapitalDelta]x, 0, {}, 0, 5, 1],
+        Editable->False]}],
+      SeriesData[$CellContext`\[CapitalDelta]x, 
+       0, {($CellContext`a + $CellContext`b + $CellContext`c + $CellContext`d + \
+$CellContext`e) $CellContext`y[
+         0], ((-2) $CellContext`a - $CellContext`b + $CellContext`d + 
+         2 $CellContext`e) Derivative[1][$CellContext`y][0], 
+        Rational[1, 2] (4 $CellContext`a + $CellContext`b + $CellContext`d + 
+         4 $CellContext`e) Derivative[2][$CellContext`y][0], 
+        Rational[1, 6] ((-8) $CellContext`a - $CellContext`b + $CellContext`d + 
+         8 $CellContext`e) Derivative[3][$CellContext`y][0], 
+        Rational[1, 24] (16 $CellContext`a + $CellContext`b + $CellContext`d + 
+         16 $CellContext`e) Derivative[4][$CellContext`y][0]}, 0, 5, 1],
+      Editable->False], ",", 
+     RowBox[{"p", "*", "q"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"p", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"y", "[", "0", "]"}], ",", 
+       RowBox[{"\[CapitalDelta]x", " ", 
+        RowBox[{
+         SuperscriptBox["y", "\[Prime]",
+          MultilineFunction->None], "[", "0", "]"}]}], ",", 
+       RowBox[{
+        SuperscriptBox["\[CapitalDelta]x", "2"], " ", 
+        RowBox[{
+         SuperscriptBox["y", "\[Prime]\[Prime]",
+          MultilineFunction->None], "[", "0", "]"}]}], ",", 
+       RowBox[{
+        SuperscriptBox["\[CapitalDelta]x", "3"], " ", 
+        RowBox[{
+         SuperscriptBox["y", 
+          TagBox[
+           RowBox[{"(", "3", ")"}],
+           Derivative],
+          MultilineFunction->None], "[", "0", "]"}]}], ",", 
+       RowBox[{
+        SuperscriptBox["\[CapitalDelta]x", "4"], " ", 
+        RowBox[{
+         SuperscriptBox["y", 
+          TagBox[
+           RowBox[{"(", "4", ")"}],
+           Derivative],
+          MultilineFunction->None], "[", "0", "]"}]}]}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"q", ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "b", ",", "c", ",", "d", ",", "e"}], "}"}]}], "}"}]}],
+   "]"}]], "Input",ExpressionUUID->"3b0ac862-c16b-4caf-9813-3827f257806f"],
+
 Cell[TextData[{
  StyleBox["\[UAcute]kol 2:",
   FontWeight->"Bold"],
@@ -8778,9 +8890,10 @@ Cell[248982, 4257, 1104, 29, 21, "Input",ExpressionUUID->"3c293feb-a735-46e3-828
 Cell[250089, 4288, 406, 9, 21, "Input",ExpressionUUID->"909e11cb-a259-45bf-865a-318b3cd27c58"],
 Cell[250498, 4299, 244, 4, 21, "Input",ExpressionUUID->"6b49d641-a66b-46f1-96a4-d3cb093b4038"],
 Cell[250745, 4305, 268343, 4405, 371, "Input",ExpressionUUID->"d9f0aa5d-fae4-43f2-9a38-d873ed1a8375"],
-Cell[519091, 8712, 467, 10, 39, "Text",ExpressionUUID->"6acf2641-aba6-4a18-bb14-698b2e346c15"],
-Cell[519561, 8724, 179, 3, 21, "Input",ExpressionUUID->"4e425235-4665-4f1c-b440-01b75227566c"],
-Cell[519743, 8729, 427, 10, 39, "Text",ExpressionUUID->"a628724a-52ae-4079-8603-5dcc68d13681"]
+Cell[519091, 8712, 4178, 110, 57, "Input",ExpressionUUID->"3b0ac862-c16b-4caf-9813-3827f257806f"],
+Cell[523272, 8824, 467, 10, 39, "Text",ExpressionUUID->"6acf2641-aba6-4a18-bb14-698b2e346c15"],
+Cell[523742, 8836, 179, 3, 21, "Input",ExpressionUUID->"4e425235-4665-4f1c-b440-01b75227566c"],
+Cell[523924, 8841, 427, 10, 39, "Text",ExpressionUUID->"a628724a-52ae-4079-8603-5dcc68d13681"]
 }
 ]
 *)
