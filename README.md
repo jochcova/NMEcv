@@ -24,6 +24,9 @@ Informace k výuce: [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/)
 
 cvičení je vedeno v programu *Wolfram Mathematica* (Wolfram language)
 
+- stažení + návod k instalaci [zde](https://download.cvut.cz/) (novější verze vyžadují počítač připojený k fakultní síti)
+- *Mathematica Online* dostupná přes [Wolfram Cloud](https://www.wolframcloud.com/): přihlašení SSO
+
 ## domácí úkoly
 
  - navazují na probíranou látku (většinou se jedná o jednoduchou modifikaci kódů ze cvičení)
