@@ -19,6 +19,7 @@ Informace k výuce: [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/)
 
 - cílem cvičení je vyzkoušet si v praxi vybrané koncepty z numerických metod probíraných na přednášce
 - obsahově cvičení čerpá z materiálů ostatních cvičících
+- cílem cvičení není suplovat přednášku 
 
 ## programovací jazyk
 
