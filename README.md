@@ -27,6 +27,7 @@ cvičení je vedeno v programu *Wolfram Mathematica* (Wolfram language)
 
 - stažení + návod k instalaci [zde](https://download.cvut.cz/) (novější verze vyžadují počítač připojený k fakultní síti)
 - *Mathematica Online* dostupná přes [Wolfram Cloud](https://www.wolframcloud.com/): přihlašení SSO
+- seznámení se s prostředím *Wolfram Mathematica*: [Fast Introduction](https://www.wolfram.com/language/fast-introduction-for-math-students/en///)
 
 ## domácí úkoly
 
