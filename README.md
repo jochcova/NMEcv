@@ -9,6 +9,8 @@ Přednášející: doc. Ing. Pavel Váchal, Ph.D. ([pavel.vachal@fjfi.cvut.cz](p
 
 Informace k výuce: [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/) 
 
+Dnešní kvíz: [zde](https://app.sli.do/event/sJ4Z32u5hEZNTCLFXWcMUq)
+
 # Požadavky k zápočtu
 
 - maximálně 3 absence za semestr
@@ -27,6 +29,7 @@ cvičení je vedeno v programu *Wolfram Mathematica* (Wolfram language)
 
 - stažení + návod k instalaci [zde](https://download.cvut.cz/) (novější verze vyžadují počítač připojený k fakultní síti)
 - *Mathematica Online* dostupná přes [Wolfram Cloud](https://www.wolframcloud.com/): přihlašení SSO
+- seznámení se s prostředím *Wolfram Mathematica*: [Fast Introduction](https://www.wolfram.com/language/fast-introduction-for-math-students/en///)
 
 ## domácí úkoly
 
