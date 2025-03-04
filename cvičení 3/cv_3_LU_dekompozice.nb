@@ -1,0 +1,187 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6338,        179]
+NotebookOptionsPosition[      5474,        158]
+NotebookOutlinePosition[      5903,        175]
+CellTagsIndexPosition[      5860,        172]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["LU dekompozice",
+ FontWeight->"Bold"]], "Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellChangeTimes->{{3.9186351194959717`*^9, 3.918635142475884*^9}, {
+  3.9186351961256657`*^9, 3.9186351963254237`*^9}, {3.950092326000642*^9, 
+  3.9500923263854475`*^9}},
+ Background->RGBColor[
+  1, 0.85, 0.85],ExpressionUUID->"2497b6da-a7ed-4e7a-99be-cc278dd9240f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"d", "=", "100"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"m", "=", 
+   RowBox[{"RandomReal", "[", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{"d", ",", "d"}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"lu", ",", "p", ",", "n"}], "}"}], "=", 
+   RowBox[{"LUDecomposition", "[", "m", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"l", "=", 
+   RowBox[{
+    RowBox[{"LowerTriangularize", "[", 
+     RowBox[{"lu", ",", 
+      RowBox[{"-", "1"}]}], "]"}], "+", 
+    RowBox[{"IdentityMatrix", "[", "d", "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"u", "=", 
+   RowBox[{"UpperTriangularize", "[", "lu", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Max", "[", 
+    RowBox[{
+     RowBox[{"l", ".", "u"}], "-", 
+     RowBox[{"m", "[", 
+      RowBox[{"[", "p", "]"}], "]"}]}], "]"}], ";"}], "//", "Chop"}], "\n", 
+ RowBox[{"Row", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"MatrixPlot", "[", 
+     RowBox[{"l", ",", 
+      RowBox[{"PlotTheme", "->", "\"\<Minimal\>\""}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", "300"}]}], "]"}], ",", "\"\<.\>\"", ",", 
+    RowBox[{"MatrixPlot", "[", 
+     RowBox[{"u", ",", 
+      RowBox[{"PlotTheme", "->", "\"\<Minimal\>\""}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", "300"}]}], "]"}], ",", "\"\< == \>\"", 
+    ",", 
+    RowBox[{"MatrixPlot", "[", 
+     RowBox[{
+      RowBox[{"m", "[", 
+       RowBox[{"[", "p", "]"}], "]"}], ",", 
+      RowBox[{"PlotTheme", "->", "\"\<Minimal\>\""}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", "300"}]}], "]"}]}], "}"}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{3.950092350341629*^9, 3.9500925477756133`*^9},
+ CellLabel->"In[27]:=",
+ CellID->171929158,ExpressionUUID->"f77a7925-c7c8-4599-b244-2c62e45690ae"],
+
+Cell[TextData[{
+ StyleBox["\[UAcute]kol 1.",
+  FontWeight->"Bold"],
+ " implementujte Crout\[URing]v algoritmus pro v\[YAcute]po\[CHacek]et LU \
+dekompozice"
+}], "Text",
+ CellChangeTimes->{{3.9500050131522093`*^9, 3.950005046665016*^9}, {
+  3.9500715061112576`*^9, 3.9500715073824472`*^9}},
+ Background->RGBColor[
+  0.9, 1, 1],ExpressionUUID->"1dea04f1-103b-46cf-b24f-049d4d02be4e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"matA", "=", 
+   RowBox[{"N", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", "28", ",", "33", ",", "11"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"6", ",", "5", ",", "38", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"12", ",", "18", ",", "23", ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"18", ",", "5", ",", "30", ",", "26"}], "}"}]}], "}"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"u", "=", 
+   RowBox[{"N", "[", 
+    RowBox[{"IdentityMatrix", "[", "4", "]"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"l", "=", 
+   RowBox[{"N", "[", 
+    RowBox[{"IdentityMatrix", "[", "4", "]"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"n", "=", 
+   RowBox[{"Length", "[", "matA", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.95000466382259*^9, 3.95000477742527*^9}, {
+   3.9500048527302737`*^9, 3.950004856770111*^9}, 3.950004997623845*^9, {
+   3.950092427798768*^9, 3.950092486475746*^9}, {3.9500925351474667`*^9, 
+   3.950092536644363*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"44ea033b-5cf7-4b32-b1b4-38f810080c7d"],
+
+Cell[BoxData[
+ TemplateBox[{
+   RowBox[{"(*", 
+     RowBox[{
+       RowBox[{"https", ":"}], "//", 
+       RowBox[{
+         RowBox[{
+           RowBox[{"maslarova", ".", "github", ".", "io"}], "/", 
+           "cvicenie4"}], "/", 
+         RowBox[{"LU", ".", "pdf"}]}]}], "*)"}], {
+    URL["https://maslarova.github.io/cvicenie4/LU.pdf"], None}, 
+   "https://maslarova.github.io/cvicenie4/LU.pdf", 
+   "HyperlinkActionRecycled", {"HyperlinkActive"}, BaseStyle -> {"Hyperlink"},
+    HyperlinkAction -> "Recycled"},
+  "HyperlinkTemplate"]], "Input",
+ CellChangeTimes->{{3.950092638459005*^9, 
+  3.9500926452999244`*^9}},ExpressionUUID->"9a3812d2-178e-463b-a2f8-\
+ac6b3059953d"],
+
+Cell[TextData[{
+ StyleBox["\[UAcute]kol 2.",
+  FontWeight->"Bold"],
+ " prozkoumejte SVD (Singular Value Decomposition), jej\[IAcute] geometrickou \
+interpretaci"
+}], "Text",
+ CellChangeTimes->{{3.9500050131522093`*^9, 3.950005046665016*^9}, {
+  3.9500715061112576`*^9, 3.9500715073824472`*^9}, {3.950092683202784*^9, 
+  3.9500927217463713`*^9}, {3.950092764243193*^9, 3.95009277109138*^9}},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"4089f0e8-6ea7-437f-9559-716db14473aa"]
+},
+WindowSize->{1440., 747.75},
+WindowMargins->{{-6, Automatic}, {Automatic, -6}},
+CellContext->Notebook,
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5da8635f-bac7-42f8-8e1e-d29c32dd3c8c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 369, 7, 39, "Text",ExpressionUUID->"2497b6da-a7ed-4e7a-99be-cc278dd9240f"],
+Cell[930, 29, 1826, 53, 107, "Input",ExpressionUUID->"f77a7925-c7c8-4599-b244-2c62e45690ae",
+ CellID->171929158],
+Cell[2759, 84, 381, 9, 39, "Text",ExpressionUUID->"1dea04f1-103b-46cf-b24f-049d4d02be4e"],
+Cell[3143, 95, 1157, 30, 64, "Input",ExpressionUUID->"44ea033b-5cf7-4b32-b1b4-38f810080c7d"],
+Cell[4303, 127, 675, 17, 23, "Input",ExpressionUUID->"9a3812d2-178e-463b-a2f8-ac6b3059953d"],
+Cell[4981, 146, 489, 10, 39, "Text",ExpressionUUID->"4089f0e8-6ea7-437f-9559-716db14473aa"]
+}
+]
+*)
+
