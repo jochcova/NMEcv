@@ -9,7 +9,7 @@ Přednášející: doc. Ing. Pavel Váchal, Ph.D. ([pavel.vachal@fjfi.cvut.cz](p
 
 Informace k výuce: [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/) 
 
-Dnešní kvíz: [zde](https://app.sli.do/event/7sEmwMcuuegDxmARr6qhwy)
+Dnešní kvíz: [zde](https://app.sli.do/event/stmRYB61H7JnFraq5Qc2XZ)
 
 # Požadavky k zápočtu
 
