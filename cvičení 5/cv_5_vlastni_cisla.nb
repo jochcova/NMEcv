@@ -1,0 +1,112 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3572,        104]
+NotebookOptionsPosition[      2907,         86]
+NotebookOutlinePosition[      3347,        103]
+CellTagsIndexPosition[      3304,        100]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\[CHacek]\[AAcute]ste\[CHacek]n\[YAcute] probl\[EAcute]m \
+vlastn\[IAcute]ch \[CHacek]\[IAcute]sel", "Text",
+ CellChangeTimes->{{3.9508572948733006`*^9, 3.9508573015611567`*^9}},
+ Background->RGBColor[
+  1, 0.9, 1],ExpressionUUID->"c66082d3-1e42-49d8-9602-4a1efcf2abe1"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"matA", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"4", ",", "0", ",", 
+       RowBox[{"-", "10"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "3.7", ",", 
+       RowBox[{"-", "8.8"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "7.85"}], ",", "2.6", ",", "3"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"v0", "=", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "po\[CHacek]\[AAcute]te\[CHacek]n\[IAcute]", " ", "odhad", " ", 
+    "vlastn\[IAcute]ho", " ", "vektoru"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"v", "=", "v0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"listL", "=", 
+    RowBox[{"{", "}"}]}], ";"}], " "}]}], "Input",
+ CellChangeTimes->{{3.95085675963514*^9, 3.950856811872754*^9}, {
+   3.9508569095508175`*^9, 3.9508569132570157`*^9}, 3.9508569783031716`*^9, {
+   3.950938792699068*^9, 3.950938811189158*^9}, 
+   3.950938967302644*^9},ExpressionUUID->"33c9e3df-d0e8-455c-9c13-\
+5b93d1d342e0"],
+
+Cell[TextData[{
+ StyleBox["\[UAcute]kol 1. ",
+  FontWeight->"Bold"],
+ "implementujte algoritmus pro v\[YAcute]po\[CHacek]et \
+nejv\[EHacek]t\[SHacek]\[IAcute]ho |\[Lambda]|"
+}], "Text",
+ CellChangeTimes->{{3.9509388383094535`*^9, 3.950938906642047*^9}, {
+  3.9509389403652067`*^9, 3.9509389434284496`*^9}},
+ Background->RGBColor[
+  0.88, 1, 0.88],ExpressionUUID->"398f7a32-9c55-4da8-8d92-8719f8f63909"],
+
+Cell[TextData[{
+ StyleBox["\[UAcute]kol 2. ",
+  FontWeight->"Bold"],
+ "testujte konvergenci algoritmu pro matici, kter\[AAcute] m\[AAcute] mal\
+\[YAcute] rozd\[IAcute]l vlastn\[IAcute]ch \[CHacek]\[IAcute]sel  \
+|\[Lambda]1-\[Lambda]2| = \[Epsilon]"
+}], "Text",
+ CellChangeTimes->{{3.9508575985454655`*^9, 3.9508576874828978`*^9}, {
+   3.9508578961558576`*^9, 3.9508579247479877`*^9}, 3.9509389493031654`*^9},
+ Background->RGBColor[
+  1, 0.85, 0.85],ExpressionUUID->"36993a14-70b1-46dc-b112-8a5f92934be2"]
+},
+WindowSize->{1152., 585.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"bad151fe-0268-4a81-8af2-e99a3e85baee"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 276, 4, 39, "Text",ExpressionUUID->"c66082d3-1e42-49d8-9602-4a1efcf2abe1"],
+Cell[837, 26, 1153, 35, 64, "Input",ExpressionUUID->"33c9e3df-d0e8-455c-9c13-5b93d1d342e0"],
+Cell[1993, 63, 402, 9, 39, "Text",ExpressionUUID->"398f7a32-9c55-4da8-8d92-8719f8f63909"],
+Cell[2398, 74, 505, 10, 39, "Text",ExpressionUUID->"36993a14-70b1-46dc-b112-8a5f92934be2"]
+}
+]
+*)
+
