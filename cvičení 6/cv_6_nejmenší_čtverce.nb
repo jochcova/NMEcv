@@ -1,0 +1,92 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2775,         84]
+NotebookOptionsPosition[      2210,         67]
+NotebookOutlinePosition[      2639,         84]
+CellTagsIndexPosition[      2596,         81]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ StyleBox["\[UAcute]kol 1.",
+  FontWeight->"Bold"],
+ " naprogramujte metodu nejmen\[SHacek]\[IAcute]ch \[CHacek]tverc\[URing] pro \
+line\[AAcute]rn\[IAcute] aproximaci ",
+ StyleBox["f(x) = k*x + q",
+  FontWeight->"Bold"],
+ " n\[AAcute]sleduj\[IAcute]c\[IAcute]ch nam\[EHacek]\[RHacek]en\[YAcute]ch \
+hodnot:"
+}], "Text",
+ CellChangeTimes->{{3.9514614386584167`*^9, 3.951461446619567*^9}, {
+  3.951461484106521*^9, 3.9514615538350706`*^9}, {3.9514615892037206`*^9, 
+  3.9514616098112316`*^9}},
+ Background->RGBColor[
+  0.88, 1, 0.88],ExpressionUUID->"4bd67b4a-3f87-4b53-92b5-ac03688de207"],
+
+Cell[BoxData[
+ TemplateBox[{
+   RowBox[{
+     RowBox[{"https", ":"}], "//", 
+     RowBox[{
+       RowBox[{
+         RowBox[{"en", ".", "wikipedia", ".", "org"}], "/", "wiki"}], "/", 
+       "Least_squares"}]}], {
+    URL["https://en.wikipedia.org/wiki/Least_squares"], None}, 
+   "https://en.wikipedia.org/wiki/Least_squares", "HyperlinkActionRecycled", {
+   "HyperlinkActive"}, BaseStyle -> {"Hyperlink"}, HyperlinkAction -> 
+   "Recycled"},
+  "HyperlinkTemplate"]], "Input",
+ CellChangeTimes->{{3.951895750538463*^9, 
+  3.9518957629351325`*^9}},ExpressionUUID->"c5bb8e69-2487-4c3b-ad4c-\
+eca35540be5e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"xData", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"yData", "=", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "5", ",", "7", ",", "10"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"n", "=", 
+   RowBox[{"Length", "[", "xData", "]"}]}], ";"}]}], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"19a07c14-a361-4899-9363-30eea528d44a"]
+},
+WindowSize->{1440., 747.75},
+WindowMargins->{{-6, Automatic}, {Automatic, -6}},
+CellContext->Notebook,
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"33f6af72-6fb7-46a9-a7a1-91fe7dc1382a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 604, 14, 39, "Text",ExpressionUUID->"4bd67b4a-3f87-4b53-92b5-ac03688de207"],
+Cell[1165, 36, 604, 15, 23, "Input",ExpressionUUID->"c5bb8e69-2487-4c3b-ad4c-eca35540be5e"],
+Cell[1772, 53, 434, 12, 50, "Input",ExpressionUUID->"19a07c14-a361-4899-9363-30eea528d44a"]
+}
+]
+*)
+
