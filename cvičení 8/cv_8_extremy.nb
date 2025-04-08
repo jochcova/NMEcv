@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     14509,        354]
-NotebookOptionsPosition[     12871,        325]
-NotebookOutlinePosition[     13350,        343]
-CellTagsIndexPosition[     13307,        340]
+NotebookDataLength[     17506,        428]
+NotebookOptionsPosition[     15680,        397]
+NotebookOutlinePosition[     16155,        415]
+CellTagsIndexPosition[     16112,        412]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -306,9 +306,10 @@ Cell[TextData[{
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"a", "=", "0."}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"a", "=", 
+   RowBox[{"-", "0.5"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"b", "=", 
+  RowBox[{"c", "=", 
    RowBox[{"N", "[", "Pi", "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"presnost", "=", 
@@ -319,13 +320,84 @@ Cell[BoxData[{
  RowBox[{"zlatyRez", "=", 
   RowBox[{"(*", "dopl\[NHacek]te", "*)"}]}]}], "Input",
  CellChangeTimes->{{3.953087935152713*^9, 3.9530879526136875`*^9}, {
-  3.9530879864475355`*^9, 
-  3.953088003827259*^9}},ExpressionUUID->"5bc5189e-516e-4046-b09b-\
-e01a287fa561"]
+  3.9530879864475355`*^9, 3.953088003827259*^9}, {3.953117873592621*^9, 
+  3.9531178805557313`*^9}},ExpressionUUID->"5bc5189e-516e-4046-b09b-\
+e01a287fa561"],
+
+Cell[BoxData[
+ RowBox[{"b", "=", 
+  RowBox[{"a", "+", 
+   RowBox[{"zlatyRez", "*", 
+    RowBox[{"(", 
+     RowBox[{"c", "-", "a"}], ")"}], " ", 
+    RowBox[{"(*", 
+     RowBox[{
+     "napocteme", " ", "prvni", " ", "nastrel", " ", "bodu", " ", "b"}], 
+     "*)"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.9530904227189503`*^9, 3.9530904357932525`*^9}, {
+  3.9530965927809367`*^9, 3.953096593840949*^9}, {3.953117962412095*^9, 
+  3.953117978549012*^9}},ExpressionUUID->"fd24f563-a660-4620-9e82-\
+5ba65ee3d1ea"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"nyni", " ", "mame", " ", "body", " ", "a"}], "<", "b", "<", 
+    "c"}], ",", 
+   RowBox[{
+    RowBox[{
+    "pokud", " ", "bod", " ", "b", " ", "je", " ", "v", " ", "leve", " ", 
+     "casti", " ", "intervalu"}], " ", "<", "a"}], ",", 
+   RowBox[{"c", ">"}], ",", " ", 
+   RowBox[{"ponechame", " ", "ho", " ", "tam"}], ",", 
+   RowBox[{
+    RowBox[{
+    "a", " ", "dopocitame", " ", "bod", " ", "d", "\n", "pokud", " ", "je", 
+     " ", "bod", " ", "b", " ", "v", " ", "prave", " ", "casti", " ", 
+     "intervalu"}], " ", "<", "a"}], ",", 
+   RowBox[{"c", ">", 
+    RowBox[{"(", 
+     RowBox[{"tzn", " ", "vznikl", " ", "v", " ", "prubehu", " ", "iteraci"}],
+      ")"}]}], ",", 
+   RowBox[{
+    RowBox[{
+    "preznacime", " ", "ho", " ", "na", " ", "d", " ", "a", " ", "dopocteme", 
+     " ", "polohu", " ", "bodu", " ", "b", "\n", "\[IndentingNewLine]", 
+     "nyni", " ", "mame", " ", "a"}], "<", "b", "<", "d", "<", "c"}], ",", 
+   RowBox[{
+    RowBox[{
+    "zjistime", " ", "ve", " ", "kterem", " ", "intervalu", " ", "je", " ", 
+     "minimum", "\n", "pokud", " ", "je", " ", "minimum", " ", "v", " ", 
+     "intervalu"}], " ", "<", "a"}], ",", 
+   RowBox[{"d", ">", 
+    RowBox[{"(", 
+     RowBox[{"ten", " ", "navic", " ", "obsahuje", " ", "bod", " ", "b"}], 
+     ")"}]}], ",", " ", 
+   RowBox[{
+   "presuneme", " ", "pravy", " ", "konec", " ", "intervalu", " ", "do", " ", 
+    "bodu", " ", "d"}], ",", 
+   RowBox[{
+    RowBox[{
+    "bod", " ", "b", " ", "nechame", " ", "na", " ", "svem", " ", "miste", 
+     "\n", "pokud", " ", "je", " ", "minimum", " ", "je", " ", "v", " ", 
+     "intervalu"}], " ", "<", "b"}], ",", 
+   RowBox[{"c", ">", 
+    RowBox[{"(", 
+     RowBox[{"ten", " ", "navic", " ", "obsahuje", " ", "bod", " ", "d"}], 
+     ")"}]}], ",", " ", 
+   RowBox[{
+   "bod", " ", "d", " ", "se", " ", "stane", " ", "novym", " ", "bodem", " ", 
+    "b", " ", "\[IndentingNewLine]", "a", " ", "levy", " ", "okraj", " ", 
+    "presuneme", " ", "do", " ", "puvodniho", " ", "bodu", " ", "b"}]}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.9531180037090015`*^9, 
+  3.9531180822387934`*^9}},ExpressionUUID->"f3cad6c8-95e7-4cc3-81f6-\
+f45d61dcd194"]
 },
 WindowSize->{1152., 592.1999999999999},
 WindowMargins->{{
-  Automatic, -4.7999999999999545`}, {-4.7999999999999545`, Automatic}},
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
 CellContext->Notebook,
 FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
 StyleDefinitions->"Default.nb",
@@ -355,7 +427,9 @@ Cell[9045, 229, 659, 15, 36, "Input",ExpressionUUID->"9e4dcc7c-e3b0-429d-818a-7c
 Cell[9707, 246, 432, 7, 39, "Text",ExpressionUUID->"ea9eed06-c4ad-4ec4-9ec6-cf3d82ad5269"],
 Cell[10142, 255, 1101, 22, 25, "Item",ExpressionUUID->"eb1865f2-9d1c-4eb0-b89e-5d560a199a1f"],
 Cell[11246, 279, 997, 25, 39, "Text",ExpressionUUID->"712ec379-bcaa-4390-bfaf-5a5bf081ab57"],
-Cell[12246, 306, 621, 17, 64, "Input",ExpressionUUID->"5bc5189e-516e-4046-b09b-e01a287fa561"]
+Cell[12246, 306, 689, 18, 64, "Input",ExpressionUUID->"5bc5189e-516e-4046-b09b-e01a287fa561"],
+Cell[12938, 326, 507, 13, 21, "Input",ExpressionUUID->"fd24f563-a660-4620-9e82-5ba65ee3d1ea"],
+Cell[13448, 341, 2228, 54, 107, "Input",ExpressionUUID->"f3cad6c8-95e7-4cc3-81f6-f45d61dcd194"]
 }
 ]
 *)
