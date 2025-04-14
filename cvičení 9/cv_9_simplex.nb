@@ -1,0 +1,499 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     19043,        491]
+NotebookOptionsPosition[     16467,        453]
+NotebookOutlinePosition[     16932,        471]
+CellTagsIndexPosition[     16889,        468]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["Hled\[AAcute]n\[IAcute] extr\[EAcute]m\[URing] funkce \
+v\[IAcute]ce prom\[EHacek]nn\[YAcute]ch",
+ FontWeight->"Bold"]], "Text",
+ CellChangeTimes->{{3.942900937631282*^9, 3.94290095613108*^9}, {
+   3.952412364837796*^9, 3.952412395534789*^9}, 3.953608427554036*^9},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"97388c6e-97a5-475a-ba7a-f517c6aa8fd5"],
+
+Cell[TextData[{
+ StyleBox["Simplexov\[AAcute] metoda",
+  FontWeight->"Bold"],
+ " (Nelder - Mead)"
+}], "Text",
+ CellChangeTimes->{{3.942900937631282*^9, 3.94290095613108*^9}, {
+   3.952412364837796*^9, 3.952412395534789*^9}, 3.953608427554036*^9, {
+   3.953608483909449*^9, 3.953608497621848*^9}},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"745f2acb-752a-43cb-91e7-ecf1c44b6528"],
+
+Cell["Vyu\[ZHacek]\[IAcute]v\[AAcute] (N + 1) - simplex v N - dimenzion\
+\[AAcute]ln\[IAcute]m prostoru", "Item",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+  3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+  3.9536085552971916`*^9}},ExpressionUUID->"ffd13b3c-d327-4bd2-8d1e-\
+0f5f1699237d"],
+
+Cell["Simplex posunujeme tak, aby ohrani\[CHacek]il minimum", "Item",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+  3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+  3.953608567921519*^9}},ExpressionUUID->"c761b13d-6c90-446a-abfe-\
+053b40892c47"],
+
+Cell["\<\
+Pak se zmen\[SHacek]uje, dokud nen\[IAcute] minimum zn\[AAcute]mo s dostate\
+\[CHacek]nou p\[RHacek]esnost\[IAcute]\
+\>", "Item",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+  3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+  3.9536085780706687`*^9}, {3.953608611317475*^9, 
+  3.9536086113200483`*^9}},ExpressionUUID->"fee33086-2d73-452e-a75f-\
+714f5a961ec4"],
+
+Cell[TextData[{
+ "Animace: ",
+ ButtonBox["https://www.youtube.com/watch?v=KEGSLQ6TlBM&ab_channel=rickardbj",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.youtube.com/watch?v=KEGSLQ6TlBM&ab_channel=rickardbj"], 
+    None},
+  ButtonNote->
+   "https://www.youtube.com/watch?v=KEGSLQ6TlBM&ab_channel=rickardbj"]
+}], "Item",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+  3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+  3.9536085780706687`*^9}, {3.9536086210256414`*^9, 
+  3.953608673236271*^9}},ExpressionUUID->"7c01a5b6-d5f6-40ac-b4a2-\
+87a69bf8480f"],
+
+Cell[TextData[{
+ "Postup p\[RHacek]i hled\[AAcute]n\[IAcute] ",
+ StyleBox["minima",
+  FontWeight->"Bold"],
+ " funkce o dvou prom\[EHacek]nn\[YAcute]ch:"
+}], "Item",
+ CellChangeTimes->{{3.953608774828841*^9, 
+  3.953608787888501*^9}},ExpressionUUID->"1e9ffb3a-3615-4c81-8d11-\
+40f19f0ef904"],
+
+Cell[TextData[{
+ "Zajist\[IAcute]me, aby ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       RowBox[{"f", "(", "W", ")"}], ">", 
+       RowBox[{"f", "(", "G", ")"}], ">", 
+       RowBox[{"f", "(", "B", ")"}]}],
+      FontWeight->"Bold"], 
+     StyleBox[";",
+      FontWeight->"Bold"], " ", 
+     RowBox[{"W", "=", "Worst"}]}], ",", " ", 
+    RowBox[{"G", "=", "Good"}], ",", " ", 
+    RowBox[{"B", "=", "Best"}]}], TraditionalForm]],ExpressionUUID->
+  "1730a514-49b4-4800-885c-fc2c3d0d0560"]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.9536089428029037`*^9}, {3.9536092013686852`*^9, 
+  3.953609228708289*^9}},ExpressionUUID->"e4f20a63-f7d3-4f03-b3ab-\
+e6b6b72177f2"],
+
+Cell[TextData[{
+ StyleBox["Reflexe ",
+  FontColor->RGBColor[1, 0.5, 0]],
+ "vrcholu ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"W", "\[Rule]", "R"}],
+    FontWeight->"Bold"], TraditionalForm]],ExpressionUUID->
+  "d53df5ae-987a-4e26-9194-5800241a52f7"],
+ ";"
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.9536089428029037`*^9}, {3.9536092013686852`*^9, 
+  3.9536092291068215`*^9}},ExpressionUUID->"3153ede1-8d28-4ac8-a2c5-\
+8bba0bdea9c2"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{"M", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"B", "+", "G"}], ")"}], "/", "2"}]}], TraditionalForm]],
+ FormatType->TraditionalForm,
+ FontWeight->
+  "Bold",ExpressionUUID->"584cd677-c7d8-4342-8e56-744ebf6dcf10"]], \
+"ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.9536091784904747`*^9}},ExpressionUUID->"94d79fb3-4726-440a-a584-\
+59fa89ca681c"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{"R", "=", 
+   RowBox[{"M", "+", 
+    RowBox[{"(", 
+     RowBox[{"M", "-", "W"}], ")"}]}]}], TraditionalForm]],
+ FormatType->TraditionalForm,
+ FontWeight->
+  "Bold",ExpressionUUID->"851eb99e-8d45-4d2a-b3c5-fadea07b6f8e"]], \
+"ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.953609171821382*^9}, {3.953609246997764*^9, 3.9536092850505867`*^9}, {
+  3.953609348460552*^9, 
+  3.953609348464802*^9}},ExpressionUUID->"e5ef80ad-3439-4815-90ab-\
+a56734284c88"],
+
+Cell[TextData[{
+ "Pokud ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"f", "(", "R", ")"}], "<", 
+     RowBox[{"f", "(", "W", ")"}]}],
+    FontWeight->"Bold"], TraditionalForm]],ExpressionUUID->
+  "fa42d99c-e5b4-4317-b34b-e92d7d6a6ded"],
+ ", p\[RHacek]esuneme sem bod ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["W",
+    FontWeight->"Bold"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "85a5e668-c863-4731-9ba8-56fe33322264"]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.953609171821382*^9}, {3.953609246997764*^9, 3.9536092850505867`*^9}, {
+  3.9536093615259495`*^9, 
+  3.953609424049698*^9}},ExpressionUUID->"220ec234-98db-4bc2-9225-\
+e812d668d5ba"],
+
+Cell[TextData[{
+ StyleBox["Expanze",
+  FontColor->RGBColor[1, 0.5, 0]],
+ StyleBox[" ",
+  FontColor->RGBColor[0.5, 0, 0.5]],
+ "vrcholu ",
+ Cell[BoxData[
+  FormBox["R", TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontWeight->"Bold",ExpressionUUID->"caa7dc53-f5ad-4caf-8bac-fbe7bd641f69"],
+ ";"
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.953609171821382*^9}, {3.953609246997764*^9, 3.9536092850505867`*^9}, {
+  3.9536093615259495`*^9, 3.9536094565949554`*^9}, {3.9536095092931795`*^9, 
+  3.953609509297361*^9}},ExpressionUUID->"6bb73066-0cfd-4606-8a7c-\
+d9ccea4c38e6"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["R", TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontWeight->"Bold",ExpressionUUID->"907bcafd-881b-4d5c-991b-cfd148126cb9"],
+ " posuneme o ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "-", "W"}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontWeight->"Bold",ExpressionUUID->"10d0af09-8638-4661-9036-17c8872de364"],
+ " do ",
+ Cell[BoxData[
+  FormBox["E", TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontWeight->"Bold",ExpressionUUID->"01be2980-48dd-4320-bf28-d3f197cdbd2e"]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.953609171821382*^9}, {3.953609246997764*^9, 3.9536092850505867`*^9}, {
+  3.9536093615259495`*^9, 3.9536094565949554`*^9}, {3.9536095348192253`*^9, 
+  3.9536095866807833`*^9}},ExpressionUUID->"7a2aadc6-358f-4f61-8058-\
+dfe85695b2b1"],
+
+Cell[TextData[{
+ "Pokud ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"f", "(", "E", ")"}], "<", 
+     RowBox[{"f", "(", "R", ")"}]}],
+    FontWeight->"Bold"], TraditionalForm]],ExpressionUUID->
+  "85feb561-8de9-4484-803b-3fb28c571d66"],
+ ", p\[RHacek]esuneme sem bod ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["W",
+    FontWeight->"Bold"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "f9fd95bb-bb8b-4733-8ec6-616a72ea8d24"]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.953609171821382*^9}, {3.953609246997764*^9, 3.9536092850505867`*^9}, {
+  3.9536093615259495`*^9, 3.9536094565949554`*^9}, {3.9536095348192253`*^9, 
+  3.9536096135611873`*^9}},ExpressionUUID->"70ad7d48-bb15-423e-abe1-\
+6f2945169d56"],
+
+Cell[TextData[{
+ "Pokud nelze splnit kroky 2. a 3., provedeme ",
+ StyleBox["kontrakci",
+  FontColor->RGBColor[1, 0.5, 0]],
+ ":"
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.953609171821382*^9}, {3.953609246997764*^9, 3.9536092850505867`*^9}, {
+  3.9536093615259495`*^9, 3.9536094565949554`*^9}, {3.9536095348192253`*^9, 
+  3.9536096293616133`*^9}, {3.953609660059221*^9, 
+  3.953609660062353*^9}},ExpressionUUID->"643fe533-ac42-43bb-87bd-\
+15dbeb3596e2"],
+
+Cell[TextData[{
+ "Vytvo\[RHacek]\[IAcute]me ",
+ Cell[BoxData[
+  FormBox["C", TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontWeight->"Bold",ExpressionUUID->"a6f871d0-0059-4abb-9514-171db794edae"],
+ " uprost\[RHacek]ed \[UAcute]se\[CHacek]ky ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"|", 
+     StyleBox["WM",
+      FontSlant->"Italic"], "|"}],
+    FontWeight->"Bold"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c7ba4f26-aea8-4c6f-a1d4-167478831cae"]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.953609171821382*^9}, {3.953609246997764*^9, 3.9536092850505867`*^9}, {
+  3.9536093615259495`*^9, 3.9536094565949554`*^9}, {3.9536095348192253`*^9, 
+  3.9536096293616133`*^9}, {3.9536096630571766`*^9, 
+  3.9536097154008064`*^9}},ExpressionUUID->"1bb2ba0a-6d8d-4e4b-a879-\
+b263201018d1"],
+
+Cell[TextData[{
+ "Pokud ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"f", "(", "C", ")"}], "<", 
+     RowBox[{"f", "(", "W", ")"}]}],
+    FontWeight->"Bold"], TraditionalForm]],ExpressionUUID->
+  "980a06c8-638e-440d-bc58-541cdb91c80e"],
+ ", p\[RHacek]esuneme sem bod ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["W",
+    FontWeight->"Bold"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "18556ee6-8940-49dd-8df5-e2c6e5cd7740"]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.953609171821382*^9}, {3.953609246997764*^9, 3.9536092850505867`*^9}, {
+  3.9536093615259495`*^9, 3.9536094565949554`*^9}, {3.9536095348192253`*^9, 
+  3.9536096293616133`*^9}, {3.9536096630571766`*^9, 
+  3.9536097431602087`*^9}},ExpressionUUID->"77ff19fd-c7b9-445a-86c2-\
+be6985f63247"],
+
+Cell[TextData[{
+ "Pokud nelze splnit krok 4., provedeme ",
+ StyleBox["zmen\[SHacek]en\[IAcute]",
+  FontColor->RGBColor[1, 0.5, 0]]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.953609171821382*^9}, {3.953609246997764*^9, 3.9536092850505867`*^9}, {
+  3.9536093615259495`*^9, 3.9536094565949554`*^9}, {3.9536095348192253`*^9, 
+  3.9536096293616133`*^9}, {3.9536096630571766`*^9, 
+  3.953609789958522*^9}},ExpressionUUID->"69287cd4-fa99-471a-a72e-\
+711cd1adb8df"],
+
+Cell[TextData[{
+ StyleBox["Vytvo\[RHacek]\[IAcute]me  ",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox["S", TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontWeight->"Bold",ExpressionUUID->"cc90c84e-0360-4c0d-80fb-0ed2fad0988b"],
+ StyleBox[" uprost\[RHacek]ed \[UAcute]se\[CHacek]ky ",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"|", 
+     StyleBox["WB",
+      FontSlant->"Italic"], "|"}],
+    FontWeight->"Bold"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "23020ef2-6b8f-4eb0-999a-65b9bbed3f1a"]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.953609171821382*^9}, {3.953609246997764*^9, 3.9536092850505867`*^9}, {
+  3.9536093615259495`*^9, 3.9536094565949554`*^9}, {3.9536095348192253`*^9, 
+  3.9536096293616133`*^9}, {3.9536096630571766`*^9, 3.9536097634160805`*^9}, {
+  3.9536097937283974`*^9, 
+  3.9536098366321573`*^9}},ExpressionUUID->"f350477f-d634-479a-a2c6-\
+c877b17fc82a"],
+
+Cell[TextData[{
+ "P\[RHacek]esuneme bod ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["W",
+    FontWeight->"Bold"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a395d508-a9bd-4ccb-8798-6858243c386a"],
+ " do ",
+ Cell[BoxData[
+  FormBox["S", TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontWeight->"Bold",ExpressionUUID->"76befaff-84bc-406b-bacd-b2d3b40dfe73"],
+ StyleBox[" ",
+  FontColor->GrayLevel[0]]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.953609171821382*^9}, {3.953609246997764*^9, 3.9536092850505867`*^9}, {
+  3.9536093615259495`*^9, 3.9536094565949554`*^9}, {3.9536095348192253`*^9, 
+  3.9536096293616133`*^9}, {3.9536096630571766`*^9, 3.9536097634160805`*^9}, {
+  3.9536097937283974`*^9, 
+  3.9536098695259256`*^9}},ExpressionUUID->"85bd7224-c3bb-4804-a086-\
+e433b7c8d9d9"],
+
+Cell[TextData[{
+ StyleBox["P\[RHacek]esuneme bod ",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   StyleBox["G",
+    FontWeight->"Bold"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "89d73948-f641-42b9-b225-9550b3590c79"],
+ StyleBox[" do ",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox["M", TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontWeight->"Bold",ExpressionUUID->"30355a7b-eb89-47c5-85d4-112662f4a78c"],
+ StyleBox[" ",
+  FontColor->GrayLevel[0]]
+}], "ItemNumbered",
+ CellChangeTimes->{{3.953608774828841*^9, 3.953608785983436*^9}, {
+  3.9536088282779865`*^9, 3.953608930746698*^9}, {3.953609034716981*^9, 
+  3.953609171821382*^9}, {3.953609246997764*^9, 3.9536092850505867`*^9}, {
+  3.9536093615259495`*^9, 3.9536094565949554`*^9}, {3.9536095348192253`*^9, 
+  3.9536096293616133`*^9}, {3.9536096630571766`*^9, 3.9536097634160805`*^9}, {
+  3.9536097937283974`*^9, 
+  3.953609900709263*^9}},ExpressionUUID->"90345da5-68b0-4398-8b75-\
+5cd6d5c59b7a"],
+
+Cell[TextData[{
+ StyleBox["\[UAcute]kol 1. ",
+  FontWeight->"Bold"],
+ "Nalezn\[EHacek]te minimum funkc\[IAcute] ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", 
+     RowBox[{"x", ",", "y"}], ")"}], "=", 
+    RowBox[{
+     SuperscriptBox["x", "2"], "+", 
+     SuperscriptBox["y", "2"]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "0da1e0e0-5122-42fe-a77a-ffd2d0d73123"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{"x", ",", "y"}], ")"}], "=", 
+    RowBox[{
+     RowBox[{"100", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"x", "-", 
+         SuperscriptBox["y", "2"]}], ")"}], "2"]}], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"1", "-", "x"}], ")"}], "2"]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "18dde062-65da-4ae2-b1eb-6c69f0ed1bfa"],
+ " simplexovou metodou"
+}], "Text",
+ CellChangeTimes->{{3.942900937631282*^9, 3.94290095613108*^9}, {
+   3.952412364837796*^9, 3.952412395534789*^9}, 3.953608427554036*^9, {
+   3.953608483909449*^9, 3.953608497621848*^9}, {3.953609936344652*^9, 
+   3.95360995032047*^9}, {3.9536099814657593`*^9, 3.953610148904583*^9}, {
+   3.9536102161291046`*^9, 3.953610226880031*^9}},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"7ac02772-e46e-4cc7-ac39-35d4de37fb86"]
+},
+WindowSize->{1428., 747.75},
+WindowMargins->{{171.75, Automatic}, {Automatic, 201}},
+CellContext->Notebook,
+Magnification:>1.25 Inherited,
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0e495c67-904d-44c7-9c92-e0a6be32bdd6"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 388, 6, 47, "Text",ExpressionUUID->"97388c6e-97a5-475a-ba7a-f517c6aa8fd5"],
+Cell[949, 28, 395, 9, 47, "Text",ExpressionUUID->"745f2acb-752a-43cb-91e7-ecf1c44b6528"],
+Cell[1347, 39, 340, 5, 29, "Item",ExpressionUUID->"ffd13b3c-d327-4bd2-8d1e-0f5f1699237d"],
+Cell[1690, 46, 294, 4, 29, "Item",ExpressionUUID->"c761b13d-6c90-446a-abfe-053b40892c47"],
+Cell[1987, 52, 417, 8, 29, "Item",ExpressionUUID->"fee33086-2d73-452e-a75f-714f5a961ec4"],
+Cell[2407, 62, 615, 14, 29, "Item",ExpressionUUID->"7c01a5b6-d5f6-40ac-b4a2-87a69bf8480f"],
+Cell[3025, 78, 290, 8, 29, "Item",ExpressionUUID->"1e9ffb3a-3615-4c81-8d11-40f19f0ef904"],
+Cell[3318, 88, 777, 22, 29, "ItemNumbered",ExpressionUUID->"e4f20a63-f7d3-4f03-b3ab-e6b6b72177f2"],
+Cell[4098, 112, 516, 15, 29, "ItemNumbered",ExpressionUUID->"3153ede1-8d28-4ac8-a2c5-8bba0bdea9c2"],
+Cell[4617, 129, 512, 13, 29, "ItemNumbered",ExpressionUUID->"94d79fb3-4726-440a-a584-59fa89ca681c"],
+Cell[5132, 144, 610, 15, 29, "ItemNumbered",ExpressionUUID->"e5ef80ad-3439-4815-90ab-a56734284c88"],
+Cell[5745, 161, 813, 23, 29, "ItemNumbered",ExpressionUUID->"220ec234-98db-4bc2-9225-e812d668d5ba"],
+Cell[6561, 186, 694, 17, 29, "ItemNumbered",ExpressionUUID->"6bb73066-0cfd-4606-8a7c-d9ccea4c38e6"],
+Cell[7258, 205, 935, 22, 29, "ItemNumbered",ExpressionUUID->"7a2aadc6-358f-4f61-8058-dfe85695b2b1"],
+Cell[8196, 229, 865, 23, 29, "ItemNumbered",ExpressionUUID->"70ad7d48-bb15-423e-abe1-6f2945169d56"],
+Cell[9064, 254, 573, 12, 29, "ItemNumbered",ExpressionUUID->"643fe533-ac42-43bb-87bd-15dbeb3596e2"],
+Cell[9640, 268, 946, 23, 30, "ItemNumbered",ExpressionUUID->"1bb2ba0a-6d8d-4e4b-a879-b263201018d1"],
+Cell[10589, 293, 918, 24, 29, "ItemNumbered",ExpressionUUID->"77ff19fd-c7b9-445a-86c2-be6985f63247"],
+Cell[11510, 319, 578, 11, 29, "ItemNumbered",ExpressionUUID->"69287cd4-fa99-471a-a72e-711cd1adb8df"],
+Cell[12091, 332, 1074, 26, 30, "ItemNumbered",ExpressionUUID->"f350477f-d634-479a-a2c6-c877b17fc82a"],
+Cell[13168, 360, 931, 23, 29, "ItemNumbered",ExpressionUUID->"85bd7224-c3bb-4804-a086-e433b7c8d9d9"],
+Cell[14102, 385, 1003, 25, 29, "ItemNumbered",ExpressionUUID->"90345da5-68b0-4398-8b75-5cd6d5c59b7a"],
+Cell[15108, 412, 1355, 39, 48, "Text",ExpressionUUID->"7ac02772-e46e-4cc7-ac39-35d4de37fb86"]
+}
+]
+*)
+
