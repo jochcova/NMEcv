@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    234240,       4092]
-NotebookOptionsPosition[    231983,       4051]
-NotebookOutlinePosition[    232410,       4068]
-CellTagsIndexPosition[    232367,       4065]
+NotebookDataLength[    234603,       4100]
+NotebookOptionsPosition[    232346,       4059]
+NotebookOutlinePosition[    232773,       4076]
+CellTagsIndexPosition[    232730,       4073]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -4042,11 +4042,19 @@ Cell[BoxData[
     RowBox[{"\"\<DisplayDurations\>\"", "->", "0.1"}]}], "]"}], " ", 
   RowBox[{"(*", 
    RowBox[{
-   "p\[RHacek]\[IAcute]kaz", " ", "pro", " ", "vytvo\[RHacek]en\[IAcute]", 
-    " ", "animace"}], "*)"}]}]], "Input",
+    RowBox[{
+    "p\[RHacek]\[IAcute]kaz", " ", "pro", " ", "vytvo\[RHacek]en\[IAcute]", 
+     " ", "animace"}], ",", " ", 
+    RowBox[{
+     RowBox[{"p\[RHacek]\[IAcute]kaz", " ", "\"\<DisplayDurations\>\""}], "->", 
+     RowBox[{
+     "0.1", " ", "nastav\[IAcute]", " ", "\[CHacek]as", " ", 
+      "trv\[AAcute]n\[IAcute]", " ", "jednoho", " ", "sn\[IAcute]mku", " ", 
+      "na", " ", "0.1", " ", "s"}]}]}], "*)"}]}]], "Input",
  CellChangeTimes->{{3.954316693208476*^9, 3.9543167241157856`*^9}, {
-   3.9543168884158297`*^9, 3.954316903289435*^9}, 
-   3.954316999025304*^9},ExpressionUUID->"06466b50-720b-49cc-89e8-\
+   3.9543168884158297`*^9, 3.954316903289435*^9}, 3.954316999025304*^9, {
+   3.954317855567505*^9, 
+   3.954317884767955*^9}},ExpressionUUID->"06466b50-720b-49cc-89e8-\
 451b469639bc"]
 },
 WindowSize->{1428., 735.75},
@@ -4093,7 +4101,7 @@ Cell[CellGroupData[{
 Cell[22737, 558, 228, 4, 21, "Input",ExpressionUUID->"632f1a40-b40a-4d2a-9486-7737032fed98"],
 Cell[22968, 564, 208474, 3470, 479, 108540, 1831, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"025413e0-b211-490a-a6bd-7962812c630f"]
 }, Open  ]],
-Cell[231457, 4037, 522, 12, 22, "Input",ExpressionUUID->"06466b50-720b-49cc-89e8-451b469639bc"]
+Cell[231457, 4037, 885, 20, 22, "Input",ExpressionUUID->"06466b50-720b-49cc-89e8-451b469639bc"]
 }
 ]
 *)
