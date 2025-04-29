@@ -1,0 +1,203 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6846,        195]
+NotebookOptionsPosition[      6094,        176]
+NotebookOutlinePosition[      6523,        193]
+CellTagsIndexPosition[      6480,        190]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["\[CapitalRHacek]e\[SHacek]en\[IAcute] soustav \
+diferenci\[AAcute]ln\[IAcute]ch rovnic",
+ FontWeight->"Bold"]], "Text",
+ CellChangeTimes->{{3.942900937631282*^9, 3.94290095613108*^9}, {
+   3.952412364837796*^9, 3.952412395534789*^9}, 3.953608427554036*^9, {
+   3.9537063181009808`*^9, 3.953706321701875*^9}, {3.954558613509034*^9, 
+   3.9545586274471645`*^9}, 3.9549027726275234`*^9},
+ Background->RGBColor[
+  1, 0.925, 0.925],ExpressionUUID->"834f5771-2e63-4e93-86e6-52993560a391"],
+
+Cell[TextData[{
+ "Zadnou \[UAcute]lohu p\[RHacek]evedeme na soustavu ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"N", " "}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "4a5261c9-0fff-4221-8d4a-0e90fc613bfe"],
+ "diferenci\[AAcute]ln\[IAcute]ch rovnic 1. \[RHacek]\[AAcute]du"
+}], "Item",
+ CellChangeTimes->{{3.9549027915262313`*^9, 
+  3.954902815231727*^9}},ExpressionUUID->"0e15ffca-bfb9-4215-9428-\
+3f41b0b6c296"],
+
+Cell[TextData[{
+ StyleBox["\[UAcute]kol 1. ",
+  FontWeight->"Bold"],
+ "Runge-Kuttovou metodou \[CHacek]tvrt\[EAcute]ho \[RHacek]\[AAcute]du vy\
+\[RHacek]e\[SHacek]te ",
+ ButtonBox["Keplerovu",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://cs.wikipedia.org/wiki/Keplerova_%C3%BAloha"], None},
+  ButtonNote->"https://cs.wikipedia.org/wiki/Keplerova_%C3%BAloha"],
+ " \[UAcute]lohu dle tohoto ",
+ ButtonBox["zad\[AAcute]n\[IAcute]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/09_ODE/DOCS/priklad_\
+ode_soustava.pdf"], None},
+  ButtonNote->
+   "http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/09_ODE/DOCS/priklad_ode_\
+soustava.pdf"]
+}], "Text",
+ CellChangeTimes->{{3.942900937631282*^9, 3.94290095613108*^9}, {
+   3.952412364837796*^9, 3.952412395534789*^9}, 3.953608427554036*^9, {
+   3.9537063181009808`*^9, 3.953706321701875*^9}, {3.954558613509034*^9, 
+   3.9545586274471645`*^9}, 3.9549027726275234`*^9, {3.954902845214641*^9, 
+   3.9549028684465914`*^9}, {3.9549029700369244`*^9, 3.954902999459017*^9}},
+ Background->RGBColor[
+  1, 0.925, 0.925],ExpressionUUID->"c70090e6-29ed-4b64-ae84-07b9b43ca578"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"t", "=", "0"}], ";"}], 
+  RowBox[{"(*", " ", 
+   RowBox[{"po\[CHacek]\[AAcute]te\[CHacek]n\[IAcute]", " ", "\[CHacek]as"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"T", "=", "20"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"koncov\[YAcute]", " ", "\[CHacek]as"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"h", "=", ".005"}], ";"}], 
+  RowBox[{"(*", " ", 
+   RowBox[{"\[CHacek]asov\[YAcute]", " ", "krok"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"u1", ",", "u2", ",", "u3", ",", "u4"}], "}"}], "=", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "0", ",", "0", ",", "1"}], "}"}]}], ";"}], 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "po\[CHacek]\[AAcute]te\[CHacek]n\[IAcute]", " ", "podm\[IAcute]nky", 
+    RowBox[{"(", 
+     RowBox[{"x", ",", 
+      RowBox[{"dx", "/", "dt"}], ",", "y", ",", 
+      RowBox[{"dy", "/", "dt"}]}], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"wn", "=", 
+    RowBox[{"{", 
+     RowBox[{"u1", ",", "u2", ",", "u3", ",", "u4"}], "}"}]}], ";"}], 
+  RowBox[{"(*", " ", 
+   RowBox[{"vektor", " ", "\[RHacek]e\[SHacek]en\[IAcute]"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"listxy", "=", 
+    RowBox[{"{", "}"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "zde", " ", "budeme", " ", "ukl\[AAcute]dat", " ", 
+    "\[RHacek]e\[SHacek]en\[IAcute]"}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.9549030909703355`*^9, 3.954903136626646*^9}, {
+  3.954903168878157*^9, 3.954903169312414*^9}, {3.954903268556422*^9, 
+  3.954903289568081*^9}, {3.954903323086622*^9, 3.9549033235071707`*^9}, {
+  3.9549034364558573`*^9, 3.954903442027626*^9}, {3.9549038745892196`*^9, 
+  3.954903882675413*^9}, {3.954904394389214*^9, 3.9549044232059793`*^9}, {
+  3.9549045004062996`*^9, 
+  3.9549045083211503`*^9}},ExpressionUUID->"2adef536-af91-4ea9-bddd-\
+2351eb5919fc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", "[", 
+   RowBox[{"w_", ",", "t_"}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"w", "[", 
+     RowBox[{"[", "2", "]"}], "]"}], ",", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"w", "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], "/", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"w", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "^", "2"}], "+", 
+        RowBox[{
+         RowBox[{"w", "[", 
+          RowBox[{"[", "3", "]"}], "]"}], "^", "2"}]}], ")"}], "^", 
+      RowBox[{"(", 
+       RowBox[{"3", "/", "2"}], ")"}]}]}], ",", 
+    RowBox[{"w", "[", 
+     RowBox[{"[", "4", "]"}], "]"}], ",", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"w", "[", 
+       RowBox[{"[", "3", "]"}], "]"}]}], "/", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"w", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "^", "2"}], "+", 
+        RowBox[{
+         RowBox[{"w", "[", 
+          RowBox[{"[", "3", "]"}], "]"}], "^", "2"}]}], ")"}], "^", 
+      RowBox[{"(", 
+       RowBox[{"3", "/", "2"}], ")"}]}]}]}], "}"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"funkce", " ", "prav\[EAcute]", " ", "strany"}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.9549034860520835`*^9, 3.954903486140168*^9}, {
+  3.954904368912223*^9, 
+  3.9549043830446177`*^9}},ExpressionUUID->"b0765d47-8bb1-42a5-8e9c-\
+eb194b90c298"]
+},
+WindowSize->{1440., 747.75},
+WindowMargins->{{-6, Automatic}, {Automatic, -6}},
+CellContext->Notebook,
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c4ee2bc9-0ea4-4cae-90f7-db1465d2f35c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 506, 8, 39, "Text",ExpressionUUID->"834f5771-2e63-4e93-86e6-52993560a391"],
+Cell[1067, 30, 435, 11, 25, "Item",ExpressionUUID->"0e15ffca-bfb9-4215-9428-3f41b0b6c296"],
+Cell[1505, 43, 1172, 26, 39, "Text",ExpressionUUID->"c70090e6-29ed-4b64-ae84-07b9b43ca578"],
+Cell[2680, 71, 1990, 56, 93, "Input",ExpressionUUID->"2adef536-af91-4ea9-bddd-2351eb5919fc"],
+Cell[4673, 129, 1417, 45, 22, "Input",ExpressionUUID->"b0765d47-8bb1-42a5-8e9c-eb194b90c298"]
+}
+]
+*)
+
