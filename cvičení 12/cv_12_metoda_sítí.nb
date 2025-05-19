@@ -1,0 +1,475 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     19230,        465]
+NotebookOptionsPosition[     17508,        432]
+NotebookOutlinePosition[     17968,        450]
+CellTagsIndexPosition[     17925,        447]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["Metoda s\[IAcute]t\[IAcute]",
+ FontWeight->"Bold"]], "Text",
+ CellChangeTimes->{{3.942900937631282*^9, 3.94290095613108*^9}, {
+   3.952412364837796*^9, 3.952412395534789*^9}, 3.953608427554036*^9, {
+   3.9537063181009808`*^9, 3.953706321701875*^9}, {3.954558613509034*^9, 
+   3.9545586274471645`*^9}, {3.9562882118841248`*^9, 3.956288218019287*^9}, 
+   3.9562891563690634`*^9, 3.9562892600828176`*^9, {3.95629643110507*^9, 
+   3.956296433675171*^9}},
+ Background->RGBColor[
+  1, 0.9, 0.8],ExpressionUUID->"42d49595-049b-49b6-b121-2666bfb72080"],
+
+Cell["\<\
+Metoda kone\[CHacek]n\[YAcute]ch diferenc\[IAcute], tak\[EAcute] \
+naz\[YAcute]van\[AAcute] metodou s\[IAcute]t\[IAcute] nebo relaxa\[CHacek]n\
+\[IAcute] metodou, je zalo\[ZHacek]en\[AAcute] na nahrazen\[IAcute] derivac\
+\[IAcute] v diferenci\[AAcute]ln\[IAcute] rovnici pomoc\[IAcute] \
+kone\[CHacek]n\[YAcute]ch diferenc\[IAcute]. T\[IAcute]m \
+z\[IAcute]sk\[AAcute]me algebraick\[YAcute] v\[YAcute]raz, kter\[YAcute] ji\
+\[ZHacek] dok\[AAcute]\[ZHacek]eme \[RHacek]e\[SHacek]it na po\[CHacek]\
+\[IAcute]ta\[CHacek]i. Uva\[ZHacek]ujeme n\[AAcute]sleduj\[IAcute]c\[IAcute] \
+ODR 2. \[RHacek]\[AAcute]du s okrajovou podm\[IAcute]nkou:\
+\>", "Item",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+   3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+   3.9536085552971916`*^9}, {3.953706853143832*^9, 3.9537069393014345`*^9}, {
+   3.9545586679186306`*^9, 3.9545587740238714`*^9}, {3.9545588103381577`*^9, 
+   3.9545588103402405`*^9}, {3.956289203434122*^9, 3.9562892046510825`*^9}, {
+   3.9562892710852175`*^9, 3.9562892743641634`*^9}, 3.9562964815576873`*^9, {
+   3.956296517835634*^9, 
+   3.9562965178387785`*^9}},ExpressionUUID->"beae3f97-c06f-404b-bd00-\
+047f671e1cf0"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"p", "(", "x", ")"}], 
+       RowBox[{"y", "''"}], 
+       RowBox[{"(", "x", ")"}]}], "+", 
+      RowBox[{
+       RowBox[{"q", "(", "x", ")"}], 
+       RowBox[{"y", "'"}], 
+       RowBox[{"(", "x", ")"}]}], "+", 
+      RowBox[{
+       RowBox[{"r", "(", "x", ")"}], 
+       RowBox[{"y", "(", "x", ")"}]}], "+", 
+      RowBox[{"s", "(", "x", ")"}]}], "=", "0"}],
+    FontWeight->"Bold"], ";", " ", 
+   RowBox[{"x", "\[Element]", 
+    RowBox[{"[", 
+     RowBox[{"a", ",", "b"}], "]"}]}], ";", " ", 
+   RowBox[{
+    RowBox[{"y", "(", "a", ")"}], "=", 
+    SubscriptBox["\[Alpha]", "1"]}], ";", " ", 
+   RowBox[{
+    RowBox[{"y", "(", "b", ")"}], "=", 
+    SubscriptBox["\[Alpha]", "2"]}]}], TraditionalForm]],
+ FormatType->
+  TraditionalForm,ExpressionUUID->"75203712-8e12-4bde-a9e8-149d6b1570ad"]], \
+"Item",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+   3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+   3.9536085552971916`*^9}, {3.953706853143832*^9, 3.9537069393014345`*^9}, {
+   3.9545586679186306`*^9, 3.9545587740238714`*^9}, {3.9545588103381577`*^9, 
+   3.9545588103402405`*^9}, {3.956289203434122*^9, 3.9562892046510825`*^9}, {
+   3.9562892710852175`*^9, 3.9562892743641634`*^9}, 3.9562964815576873`*^9, {
+   3.9562965230365453`*^9, 
+   3.956296632351601*^9}},ExpressionUUID->"2ee90181-236e-4760-8a33-\
+4984fd9a0d98"],
+
+Cell[TextData[{
+ "Provedeme nahrazen\[IAcute] jednotliv\[YAcute]ch derivac\[IAcute] pomoc\
+\[IAcute] n\[AAcute]sleduj\[IAcute]c\[IAcute]ch aproximac\[IAcute] pomoc\
+\[IAcute] kone\[CHacek]n\[YAcute]ch diferenc\[IAcute], kter\[EAcute] po\
+\[CHacek]\[IAcute]t\[AAcute]me na rovnom\[EHacek]rn\[EAcute] s\[IAcute]ti na \
+intervalu ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"[", 
+    RowBox[{"a", ",", "b"}], "]"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "12654f47-6d5e-402e-a7b1-01e40e16e98a"],
+ " s krokem ",
+ Cell[BoxData[
+  FormBox["h", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "df4e2d4e-ef76-42db-8b40-a2cd1523ade3"]
+}], "Item",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+   3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+   3.9536085552971916`*^9}, {3.953706853143832*^9, 3.9537069393014345`*^9}, {
+   3.9545586679186306`*^9, 3.9545587740238714`*^9}, {3.9545588103381577`*^9, 
+   3.9545588103402405`*^9}, {3.956289203434122*^9, 3.9562892046510825`*^9}, {
+   3.9562892710852175`*^9, 3.9562892743641634`*^9}, 3.9562964815576873`*^9, {
+   3.9562965230365453`*^9, 
+   3.956296676960309*^9}},ExpressionUUID->"bdb50a8c-c479-4dc0-8289-\
+fee251f21e47"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["y", "i"], "'"}], "=", 
+    FractionBox[
+     RowBox[{
+      SubscriptBox["y", 
+       RowBox[{"i", "+", "1"}]], "-", 
+      SubscriptBox["y", "1"]}], "h"]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "0a11a47b-066d-422b-8ec3-8ae8b0324e60"],
+ "; ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["y", "i"], "''"}], "=", 
+    FractionBox[
+     RowBox[{
+      SubscriptBox["y", 
+       RowBox[{"i", "+", "1"}]], "-", 
+      RowBox[{"2", 
+       SubscriptBox["y", "1"]}], "+", 
+      SubscriptBox["y", 
+       RowBox[{"i", "-", "1"}]]}], 
+     SuperscriptBox["h", "2"]]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b8c956ed-8ef6-4eef-a60c-ede126155659"],
+ "; ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"i", "=", "0"}], ",", "...", " ", ",", "n"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "daeb82e5-8da1-42c9-a1b1-aac62d4ac106"]
+}], "Item",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+   3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+   3.9536085552971916`*^9}, {3.953706853143832*^9, 3.9537069393014345`*^9}, {
+   3.9545586679186306`*^9, 3.9545587740238714`*^9}, {3.9545588103381577`*^9, 
+   3.9545588103402405`*^9}, {3.956289203434122*^9, 3.9562892046510825`*^9}, {
+   3.9562892710852175`*^9, 3.9562892743641634`*^9}, 3.9562964815576873`*^9, {
+   3.9562965230365453`*^9, 
+   3.9562968178090286`*^9}},ExpressionUUID->"1eb80442-753e-42f7-bb9e-\
+1da9e980e894"],
+
+Cell["\<\
+Okrajovou \[UAcute]lohu pak m\[URing]\[ZHacek]eme p\[RHacek]epsat jako \
+soustavu line\[AAcute]rn\[IAcute]ch algebraick\[YAcute]ch rovnic:\
+\>", "Item",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+   3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+   3.9536085552971916`*^9}, {3.953706853143832*^9, 3.9537069393014345`*^9}, {
+   3.9545586679186306`*^9, 3.9545587740238714`*^9}, {3.9545588103381577`*^9, 
+   3.9545588103402405`*^9}, {3.956289203434122*^9, 3.9562892046510825`*^9}, {
+   3.9562892710852175`*^9, 3.9562892743641634`*^9}, 3.9562964815576873`*^9, {
+   3.9562965230365453`*^9, 3.9562968093753386`*^9}, {3.9562968461328554`*^9, 
+   3.9562968497519093`*^9}},ExpressionUUID->"0bca7ad1-37d8-4ecd-a465-\
+ab14d925340f"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SubscriptBox[
+       OverscriptBox["p", "_"], "i"], 
+      SubscriptBox["y", 
+       RowBox[{"i", "-", "1"}]]}], "+", 
+     RowBox[{
+      SubscriptBox[
+       OverscriptBox["q", "_"], "i"], 
+      SubscriptBox["y", "i"]}], "+", 
+     RowBox[{
+      SubscriptBox[
+       OverscriptBox["r", "_"], "i"], 
+      SubscriptBox["y", 
+       RowBox[{"i", "+", "1"}]]}]}], "=", 
+    SubscriptBox[
+     OverscriptBox["s", "_"], "i"]}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontWeight->"Bold",ExpressionUUID->"cd87c298-68a6-4e3a-a8f3-82adead12788"],
+ ";  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["y", "0"], "=", 
+     SubscriptBox["\[Alpha]", "1"]}], ";", " ", 
+    RowBox[{
+     SubscriptBox["y", "n"], "=", 
+     SubscriptBox["\[Alpha]", "2"]}], ";"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5266065c-6cf7-451f-92be-6af945cd743d"],
+ " kde"
+}], "Item",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+   3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+   3.9536085552971916`*^9}, {3.953706853143832*^9, 3.9537069393014345`*^9}, {
+   3.9545586679186306`*^9, 3.9545587740238714`*^9}, {3.9545588103381577`*^9, 
+   3.9545588103402405`*^9}, {3.956289203434122*^9, 3.9562892046510825`*^9}, {
+   3.9562892710852175`*^9, 3.9562892743641634`*^9}, 3.9562964815576873`*^9, {
+   3.9562965230365453`*^9, 3.9562968093753386`*^9}, {3.9562968461328554`*^9, 
+   3.9562970481573153`*^9}, 
+   3.956634840057046*^9},ExpressionUUID->"babc643d-ceb5-40e5-9896-\
+595c74dd488d"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox[
+    OverscriptBox["p", "_"], "i"], "=", 
+   SubscriptBox["p", "i"]}], 
+  TraditionalForm]],ExpressionUUID->"243c991b-4e86-45cc-a75b-929a3a08c223"]], \
+"Subsubitem",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+   3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+   3.9536085552971916`*^9}, {3.953706853143832*^9, 3.9537069393014345`*^9}, {
+   3.9545586679186306`*^9, 3.9545587740238714`*^9}, {3.9545588103381577`*^9, 
+   3.9545588103402405`*^9}, {3.956289203434122*^9, 3.9562892046510825`*^9}, {
+   3.9562892710852175`*^9, 3.9562892743641634`*^9}, 3.9562964815576873`*^9, {
+   3.9562965230365453`*^9, 3.9562968093753386`*^9}, {3.9562968461328554`*^9, 
+   3.9562971934870386`*^9}},ExpressionUUID->"df77c9ba-227a-4e43-afc3-\
+bbab649c68da"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox[
+    OverscriptBox["q", "_"], "i"], "=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "2"}], 
+      SubscriptBox["p", "i"]}], "-", 
+     RowBox[{
+      SubscriptBox["q", "i"], "h"}], "+", 
+     RowBox[{
+      SubscriptBox["r", "i"], 
+      SuperscriptBox["h", "2"]}]}], ")"}]}], 
+  TraditionalForm]],ExpressionUUID->"68eaa16f-c7c6-4262-add7-4a6db3fac4d6"]], \
+"Subsubitem",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+   3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+   3.9536085552971916`*^9}, {3.953706853143832*^9, 3.9537069393014345`*^9}, {
+   3.9545586679186306`*^9, 3.9545587740238714`*^9}, {3.9545588103381577`*^9, 
+   3.9545588103402405`*^9}, {3.956289203434122*^9, 3.9562892046510825`*^9}, {
+   3.9562892710852175`*^9, 3.9562892743641634`*^9}, 3.9562964815576873`*^9, {
+   3.9562965230365453`*^9, 3.9562968093753386`*^9}, {3.9562968461328554`*^9, 
+   3.9562971994074993`*^9}},ExpressionUUID->"974b404f-f2fe-4134-ae22-\
+c9aa9584c757"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox[
+    OverscriptBox["r", "_"], "i"], "=", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["p", "i"], "+", 
+     RowBox[{
+      SubscriptBox["q", "i"], "h"}]}], ")"}]}], 
+  TraditionalForm]],ExpressionUUID->"6071c0a0-51d7-4c3d-9d8d-b1a5dc98b025"]], \
+"Subsubitem",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+   3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+   3.9536085552971916`*^9}, {3.953706853143832*^9, 3.9537069393014345`*^9}, {
+   3.9545586679186306`*^9, 3.9545587740238714`*^9}, {3.9545588103381577`*^9, 
+   3.9545588103402405`*^9}, {3.956289203434122*^9, 3.9562892046510825`*^9}, {
+   3.9562892710852175`*^9, 3.9562892743641634`*^9}, 3.9562964815576873`*^9, {
+   3.9562965230365453`*^9, 3.9562968093753386`*^9}, {3.9562968461328554`*^9, 
+   3.95629726068161*^9}},ExpressionUUID->"a8422963-9a88-4edd-bcc5-\
+94824982a42e"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox[
+    OverscriptBox["s", "_"], "i"], "=", 
+   RowBox[{
+    RowBox[{"-", 
+     SubscriptBox["s", "i"]}], 
+    SuperscriptBox["h", "2"]}]}], 
+  TraditionalForm]],ExpressionUUID->"3bde61e2-7f72-40e4-b958-fb1202523200"]], \
+"Subsubitem",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+   3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+   3.9536085552971916`*^9}, {3.953706853143832*^9, 3.9537069393014345`*^9}, {
+   3.9545586679186306`*^9, 3.9545587740238714`*^9}, {3.9545588103381577`*^9, 
+   3.9545588103402405`*^9}, {3.956289203434122*^9, 3.9562892046510825`*^9}, {
+   3.9562892710852175`*^9, 3.9562892743641634`*^9}, 3.9562964815576873`*^9, {
+   3.9562965230365453`*^9, 3.9562968093753386`*^9}, {3.9562968461328554`*^9, 
+   3.9562973023307557`*^9}},ExpressionUUID->"2d5eb7b7-21cc-4826-add9-\
+90fb68317172"]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["\[UAcute]kol 1. ",
+  FontWeight->"Bold"],
+ "Pomoc\[IAcute] metody s\[IAcute]t\[IAcute] \[RHacek]e\[SHacek]te \
+\[UAcute]lohu tlumen\[EAcute]ho oscil\[AAcute]toru  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"y", "''"}], 
+      RowBox[{"(", "t", ")"}]}], "+", 
+     RowBox[{"2", 
+      RowBox[{"y", "'"}], 
+      RowBox[{"(", "t", ")"}]}], "+", 
+     RowBox[{"100", 
+      RowBox[{"y", "(", "t", ")"}]}]}], "=", "0"}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontWeight->"Bold",ExpressionUUID->"66fa79aa-47ec-4dee-aa8a-9c17d9f5d4f7"]
+}], "Text",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+   3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+   3.9536085552971916`*^9}, {3.953706853143832*^9, 3.9537069393014345`*^9}, {
+   3.9545586679186306`*^9, 3.9545587740238714`*^9}, {3.9545588103381577`*^9, 
+   3.9545588103402405`*^9}, {3.956289203434122*^9, 3.9562892046510825`*^9}, {
+   3.9562892710852175`*^9, 3.9562892743641634`*^9}, 3.9562964815576873`*^9, {
+   3.9562965230365453`*^9, 3.9562968093753386`*^9}, {3.9562968461328554`*^9, 
+   3.9562968497519093`*^9}, {3.956297895384911*^9, 3.9562979054171095`*^9}, {
+   3.95630415708385*^9, 3.956304204393137*^9}, {3.9563042558530273`*^9, 
+   3.956304272292384*^9}, {3.9566342021770587`*^9, 3.9566342074164453`*^9}},
+ Background->RGBColor[
+  1, 0.9, 0.8],ExpressionUUID->"80e1d801-4382-48d3-af7e-7d1e635c14ce"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Postup metody kone\[CHacek]n\[YAcute]ch diferenc\[IAcute] lze shrnout do n\
+\[AAcute]sleduj\[IAcute]c\[IAcute]ch krok\[URing]:\[LineSeparator]1.  Zvol\
+\[IAcute]me tvar kone\[CHacek]n\[YAcute]ch diferenc\[IAcute], kter\[YAcute]mi \
+nahrad\[IAcute]me jednotliv\[EAcute] derivace.\[LineSeparator]2. Z\[IAcute]sk\
+\[AAcute]me soustavu line\[AAcute]rn\[IAcute]ch rovnic - sestav\[IAcute]me \
+matici soustavy a pravou stranu.\[LineSeparator]3. \[CapitalRHacek]e\[SHacek]\
+\[IAcute]me soustavu pomoc\[IAcute] zvolen\[EAcute]ho algoritmu.\
+\>", "Item",
+ CellChangeTimes->{{3.952057767726509*^9, 3.9520578091320634`*^9}, {
+   3.952057850919281*^9, 3.952057968741467*^9}, {3.9536085441449976`*^9, 
+   3.9536085552971916`*^9}, {3.953706853143832*^9, 3.9537069393014345`*^9}, {
+   3.9545586679186306`*^9, 3.9545587740238714`*^9}, {3.9545588103381577`*^9, 
+   3.9545588103402405`*^9}, {3.956289203434122*^9, 3.9562892046510825`*^9}, {
+   3.9562892710852175`*^9, 3.9562892743641634`*^9}, 3.9562964815576873`*^9, {
+   3.9562965230365453`*^9, 3.9562968093753386`*^9}, {3.9562968461328554`*^9, 
+   3.9562968497519093`*^9}, {3.956297895384911*^9, 
+   3.956297955787866*^9}},ExpressionUUID->"286e16e6-e9df-4468-8789-\
+77b598606ba7"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"n", "=", "101"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"diskretizace", " ", "s\[IAcute]t\[EHacek]"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"a", "=", "0"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"hranice", " ", "intervalu"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"b", "=", "2"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"hranice", " ", "intervalu"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]1", "=", "1"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"okrajov\[AAcute]", " ", "podm\[IAcute]nka"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]2", "=", "0"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"okrajov\[AAcute]", " ", "podm\[IAcute]nka"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"h", "=", 
+    RowBox[{"N", "[", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"b", "-", "a"}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"n", "-", "1"}], ")"}]}], "]"}]}], ";"}], " ", 
+  RowBox[{"(*", "krok", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pi", "=", "dopl\[NHacek]te"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"qi", "=", "dopl\[NHacek]te"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ri", "=", "dopl\[NHacek]te"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"si", "=", "dopl\[NHacek]te"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.956299902224842*^9, 3.9563000755516496`*^9}, {
+  3.9563001549066734`*^9, 3.956300155280792*^9}, {3.9566343924427342`*^9, 
+  3.956634406244217*^9}, {3.9566344417940035`*^9, 3.956634528334396*^9}, {
+  3.956634768075962*^9, 
+  3.9566347954266014`*^9}},ExpressionUUID->"5c5ca6b5-cad5-4938-8c5a-\
+f610f6ae8cbb"]
+}, Open  ]]
+},
+WindowSize->{1440., 747.75},
+WindowMargins->{{-6, Automatic}, {Automatic, -6}},
+CellContext->Notebook,
+Magnification:>1.25 Inherited,
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6db68c62-7b30-4dfc-9d1b-a99ed65e6ef2"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 568, 9, 47, "Text",ExpressionUUID->"42d49595-049b-49b6-b121-2666bfb72080"],
+Cell[1129, 31, 1225, 19, 48, "Item",ExpressionUUID->"beae3f97-c06f-404b-bd00-047f671e1cf0"],
+Cell[2357, 52, 1491, 39, 28, "Item",ExpressionUUID->"2ee90181-236e-4760-8a33-4984fd9a0d98"],
+Cell[3851, 93, 1249, 26, 29, "Item",ExpressionUUID->"bdb50a8c-c479-4dc0-8289-fee251f21e47"],
+Cell[5103, 121, 1603, 46, 35, "Item",ExpressionUUID->"1eb80442-753e-42f7-bb9e-1da9e980e894"],
+Cell[6709, 169, 781, 12, 29, "Item",ExpressionUUID->"0bca7ad1-37d8-4ecd-a465-ab14d925340f"],
+Cell[CellGroupData[{
+Cell[7515, 185, 1651, 46, 29, "Item",ExpressionUUID->"babc643d-ceb5-40e5-9896-595c74dd488d"],
+Cell[9169, 233, 849, 16, 23, "Subsubitem",ExpressionUUID->"df77c9ba-227a-4e43-afc3-bbab649c68da"],
+Cell[10021, 251, 1076, 25, 24, "Subsubitem",ExpressionUUID->"974b404f-f2fe-4134-ae22-c9aa9584c757"],
+Cell[11100, 278, 944, 20, 22, "Subsubitem",ExpressionUUID->"a8422963-9a88-4edd-bcc5-94824982a42e"],
+Cell[12047, 300, 916, 19, 22, "Subsubitem",ExpressionUUID->"2d5eb7b7-21cc-4826-add9-90fb68317172"]
+}, Open  ]],
+Cell[12978, 322, 1476, 31, 47, "Text",ExpressionUUID->"80e1d801-4382-48d3-af7e-7d1e635c14ce"],
+Cell[CellGroupData[{
+Cell[14479, 357, 1224, 18, 86, "Item",ExpressionUUID->"286e16e6-e9df-4468-8789-77b598606ba7"],
+Cell[15706, 377, 1786, 52, 187, "Input",ExpressionUUID->"5c5ca6b5-cad5-4938-8c5a-f610f6ae8cbb"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
