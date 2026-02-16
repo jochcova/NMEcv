@@ -3,7 +3,7 @@ Materiály ke cvičení NME1 na FJFI ČVUT v Praze
 
 **Kontakt:**
 
-cvičící: Ing. Dominika Jochcová **([jochcdom@fjfi.cvut.cz](jochcdom@fjfi.cvut.cz))**
+cvičící: Ing. Dominika Jochcová, Ph.D. **([jochcdom@fjfi.cvut.cz](jochcdom@fjfi.cvut.cz))**
 
 Přednášející: doc. Ing. Pavel Váchal, Ph.D. ([pavel.vachal@fjfi.cvut.cz](pavel.vachal@fjfi.cvut.cz))
 
