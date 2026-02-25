@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     22403,        586]
-NotebookOptionsPosition[     19735,        545]
-NotebookOutlinePosition[     20162,        562]
-CellTagsIndexPosition[     20119,        559]
+NotebookDataLength[     18706,        484]
+NotebookOptionsPosition[     16224,        445]
+NotebookOutlinePosition[     16657,        462]
+CellTagsIndexPosition[     16614,        459]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -386,46 +386,6 @@ z=1, (pro dop\[RHacek]edn\[EAcute] nebo centr\[AAcute]ln\[IAcute] diferen\
  Background->RGBColor[
   0.9, 1, 1],ExpressionUUID->"f1b90a6b-4c4f-4106-bd22-23f5971f00c1"],
 
-Cell[BoxData[{
- RowBox[{"dfb", "=", 
-  RowBox[{"N", "[", 
-   RowBox[{"df", "/.", 
-    RowBox[{"{", 
-     RowBox[{"z", "->", "2"}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"relb", "=", 
-    RowBox[{
-     RowBox[{"Abs", "[", 
-      RowBox[{"dfb", "-", 
-       RowBox[{"dop\[RHacek]edn\[EAcute]", "[", 
-        RowBox[{"f", ",", "2", ",", "h"}], "]"}]}], "]"}], "/", 
-     RowBox[{"Abs", "[", "dfb", "]"}]}]}], ";"}], 
-  RowBox[{"(*", 
-   RowBox[{"relativn\[IAcute]", " ", "chyba"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{"LogLogPlot", "[", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"rel1", ",", "relb"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"h", ",", 
-     RowBox[{"10", "^", 
-      RowBox[{"(", 
-       RowBox[{"-", "11"}], ")"}]}], ",", ".000001"}], "}"}], ",", 
-   RowBox[{"ImageSize", "->", "Large"}], ",", 
-   RowBox[{"AxesLabel", "->", 
-    RowBox[{"{", 
-     RowBox[{"\"\<h\>\"", ",", "\"\<rel(h)\>\""}], "}"}]}], ",", 
-   RowBox[{"AxesStyle", "->", 
-    RowBox[{"Directive", "[", 
-     RowBox[{"Gray", ",", " ", "17"}], "]"}]}]}], "]"}]}], "Input",
- CellChangeTimes->{
-  3.9493794645138493`*^9, {3.9493796189431343`*^9, 3.9493796268372307`*^9}, {
-   3.949747665786178*^9, 3.9497476721851673`*^9}},
- Background->RGBColor[1, 0.5, 0],
- CellLabel->"In[7]:=",ExpressionUUID->"9deb1c4c-362c-47d1-b11f-b1d1bd0855eb"],
-
 Cell[TextData[{
  StyleBox["\[UAcute]kol 1: ",
   FontWeight->"Bold"],
@@ -436,66 +396,6 @@ chybu v pro bod z=1"
   3.9478414733557434`*^9, 3.9478414751078014`*^9}},
  Background->RGBColor[
   1, 0.9, 1],ExpressionUUID->"cc502a71-d823-448e-b6ef-bda68608a83c"],
-
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"\[CHacek]tvrt\[EAcute]ho\[CapitalRHacek]\[AAcute]du", "[", 
-   RowBox[{"f_", ",", "z_", ",", "h_"}], "]"}], ":=", 
-  RowBox[{
-   RowBox[{"(", 
-    RowBox[{
-     RowBox[{"-", 
-      RowBox[{"f", "[", 
-       RowBox[{"z", "+", 
-        RowBox[{"2", " ", "h"}]}], "]"}]}], "+", 
-     RowBox[{"8", " ", 
-      RowBox[{"f", "[", 
-       RowBox[{"z", "+", "h"}], "]"}]}], "-", 
-     RowBox[{"8", " ", 
-      RowBox[{"f", "[", 
-       RowBox[{"z", "-", "h"}], "]"}]}], "+", 
-     RowBox[{"f", "[", 
-      RowBox[{"z", "-", 
-       RowBox[{"2", " ", "h"}]}], "]"}]}], ")"}], "/", 
-   RowBox[{"(", 
-    RowBox[{"12", " ", "h"}], ")"}]}]}], "\[IndentingNewLine]", 
- RowBox[{"rel4", "=", 
-  RowBox[{"Abs", "[", 
-   RowBox[{
-    RowBox[{"(", 
-     RowBox[{
-      RowBox[{"N", "[", 
-       RowBox[{"\[CHacek]tvrt\[EAcute]ho\[CapitalRHacek]\[AAcute]du", "[", 
-        RowBox[{"f", ",", "1", ",", "h"}], "]"}], "]"}], "-", "dfa"}], ")"}], 
-    "/", "dfa"}], "]"}]}], "\n", 
- RowBox[{
-  RowBox[{"LogLogPlot", "[", 
-   RowBox[{"rel4", ",", 
-    RowBox[{"{", 
-     RowBox[{"h", ",", 
-      RowBox[{"10", "^", 
-       RowBox[{"(", 
-        RowBox[{"-", "10"}], ")"}]}], ",", 
-      RowBox[{"10", "^", 
-       RowBox[{"(", 
-        RowBox[{"-", "2"}], ")"}]}]}], "}"}], ",", 
-    RowBox[{"ImageSize", "->", "Large"}], ",", 
-    RowBox[{"AxesLabel", "->", 
-     RowBox[{"{", 
-      RowBox[{"\"\<h\>\"", ",", "\"\<rel(h)\>\""}], "}"}]}], ",", 
-    RowBox[{"AxesStyle", "->", 
-     RowBox[{"Directive", "[", 
-      RowBox[{"Gray", ",", " ", "17"}], "]"}]}], ",", 
-    RowBox[{"PlotRange", "->", "All"}]}], "]"}], 
-  RowBox[{"(*", " ", 
-   RowBox[{"p\[RHacek]idal", " ", "rel4", " ", "k", " ", "ostatn\[IAcute]m"}],
-    "*)"}]}]}], "Input",
- CellChangeTimes->{{3.9478424762257957`*^9, 3.947842476284593*^9}, 
-   3.9493230732124453`*^9, {3.9493231616838655`*^9, 3.949323179269088*^9}, {
-   3.949324411793827*^9, 3.9493244125289984`*^9}, {3.9493797081942253`*^9, 
-   3.949379734861904*^9}, {3.9493798535306654`*^9, 3.9493798580581307`*^9}},
- Background->RGBColor[
-  1, 0.5, 0],ExpressionUUID->"e5ba60e2-7941-4546-be91-a0d53bc31a68"],
 
 Cell[BoxData[{
  RowBox[{
@@ -543,12 +443,12 @@ Cell[TextData[{
   0.88, 1, 0.88],ExpressionUUID->"46037555-afbb-4472-8d1d-99146a7e68ed"]
 }, Open  ]]
 },
-WindowSize->{1141.2, 574.8},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowSize->{1141.5, 575.25},
+WindowMargins->{{24.75, Automatic}, {Automatic, 48}},
 CellContext->Notebook,
 FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
 StyleDefinitions->"Default.nb",
-ExpressionUUID->"98daa003-d67b-48f7-a44b-8efabb360131"
+ExpressionUUID->"381c091e-fee9-423a-bed5-66b784d5cd3f"
 ]
 (* End of Notebook Content *)
 
@@ -582,11 +482,9 @@ Cell[10722, 296, 512, 14, 36, "Input",ExpressionUUID->"f4b397f5-e2d7-4a9a-888b-4
 Cell[11237, 312, 1017, 24, 21, "Input",ExpressionUUID->"bb41ac01-22e3-4cb8-b980-279da7d27669"],
 Cell[12257, 338, 1442, 34, 21, "Input",ExpressionUUID->"bc31e529-38b0-40fe-b75f-778c2f2839e3"],
 Cell[13702, 374, 659, 12, 39, "Text",ExpressionUUID->"f1b90a6b-4c4f-4106-bd22-23f5971f00c1"],
-Cell[14364, 388, 1363, 38, 62, "Input",ExpressionUUID->"9deb1c4c-362c-47d1-b11f-b1d1bd0855eb"],
-Cell[15730, 428, 395, 9, 39, "Text",ExpressionUUID->"cc502a71-d823-448e-b6ef-bda68608a83c"],
-Cell[16128, 439, 2142, 58, 79, "Input",ExpressionUUID->"e5ba60e2-7941-4546-be91-a0d53bc31a68"],
-Cell[18273, 499, 998, 31, 37, "Input",ExpressionUUID->"7fb3abce-5cbe-47a4-aae1-0dcd237b0cef"],
-Cell[19274, 532, 445, 10, 39, "Text",ExpressionUUID->"46037555-afbb-4472-8d1d-99146a7e68ed"]
+Cell[14364, 388, 395, 9, 39, "Text",ExpressionUUID->"cc502a71-d823-448e-b6ef-bda68608a83c"],
+Cell[14762, 399, 998, 31, 37, "Input",ExpressionUUID->"7fb3abce-5cbe-47a4-aae1-0dcd237b0cef"],
+Cell[15763, 432, 445, 10, 39, "Text",ExpressionUUID->"46037555-afbb-4472-8d1d-99146a7e68ed"]
 }, Open  ]]
 }
 ]
