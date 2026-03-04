@@ -9,13 +9,13 @@ Přednášející: doc. Ing. Pavel Váchal, Ph.D. ([pavel.vachal@fjfi.cvut.cz](p
 
 Informace k výuce: [zde](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/) 
 
-Dnešní kvíz: [zde](https://app.sli.do/event/3FCJKAQRfub2J9CP8XjMkB)
+Dnešní kvíz: [zde](https://app.sli.do/event/gqWPV7Ed88955gsjYsuMvV)
 
 # Požadavky k zápočtu
 
 - maximálně 3 absence za semestr
 - včasné odevzdání + správnost domácích úkolů (4 úkoly za semestr)
-- na zkoušku je možné jít před udělením zápočtu
+- na zkoušku je možné jít před udělením zápočtu (platí do srpna, pro složení zkoušky v září je potřeba mít zápočet udělený)
 
 # Forma cvičení
 
